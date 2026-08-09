@@ -1,490 +1,535 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0030)http://ir.kaist.ac.kr/~hyejuj/ -->
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hyeju Jang — Indiana University Indianapolis</title>
+<meta name="description" content="Hyeju Jang is an assistant professor of Computer Science at Indiana University Indianapolis. She studies what language models are actually responding to when they judge human language.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF;
+  --ink:#1B1E24;
+  --muted:#5C6470;
+  --accent:#197BEA;
+  --accent-deep:#0F5BBF;
+  --tint:#E4F0FE;
+  --rule:#E2E8F0;
+  --card:#F7FAFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.6;
+}
+.wrap{max-width:47rem;margin:0 auto;padding:0 1.25rem}
+a{color:var(--accent-deep);text-decoration:underline;text-decoration-color:rgba(23,94,84,.35);text-underline-offset:2px}
+a:hover{text-decoration-color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
 
-<title>Hyeju Jang</title>
-<style type="text/css">
-<!--
-div.MsoNormal {mso-style-unhide:no;
-	mso-style-qformat:yes;
-	mso-style-parent:"";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	font-size:12.0pt;
-	font-family:"Verdana";
-	mso-fareast-font-family:바탕;
-	mso-fareast-language:EN-US;}
-li.MsoNormal {mso-style-unhide:no;
-	mso-style-qformat:yes;
-	mso-style-parent:"";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	font-size:12.0pt;
-	font-family:"Verdana";
-	mso-fareast-font-family:바탕;
-	mso-fareast-language:EN-US;}
-p.MsoNormal {mso-style-unhide:no;
-	mso-style-qformat:yes;
-	mso-style-parent:"";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	font-size:14.0pt;
-	font-family:"Verdana";
-	mso-fareast-font-family:바탕;
-	mso-fareast-language:EN-US;}
-div.title {
-    background-color:#339;
-    font-size: 25px;
-    font-family:"Helvetica"
-    text-align: left;
+/* ---------- header ---------- */
+header{padding:2rem 0 0}
+.masthead{display:flex;gap:2.25rem;align-items:flex-start;padding:1rem 0 0}
+.masthead img{width:170px;height:auto;border-radius:4px;flex-shrink:0;box-shadow:10px 10px 0 var(--tint)}
+h1{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:2.5rem;line-height:1.1;letter-spacing:-.01em}
+.role{color:var(--muted);margin-top:.5rem;font-size:.95rem;line-height:1.5}
+.role a{color:inherit}
+.contact{margin-top:.9rem;font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--muted)}
+.contact span{margin-right:1.1rem;white-space:nowrap}
+@media (max-width:600px){
+  .masthead{flex-direction:column;gap:1.25rem}
+  h1{font-size:2rem}
 }
-div.subtitle {
-	font-weight: bold;
-    font-size: 20px;
-    font-family:"Helvetica"
-    margin-top: 10px
-    margin-bottom: 10px
+
+/* ---------- intro ---------- */
+.intro{padding:2rem 0 0}
+.intro p{margin-bottom:1rem;max-width:44rem}
+.intro p:last-child{margin-bottom:0}
+
+/* ---------- probe figure (signature) ---------- */
+.probe{
+  margin:2.25rem 0 0;
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-left:3px solid var(--accent);
+  border-radius:6px;
+  padding:1.4rem 1.5rem 1.2rem;
 }
-div.paper-title {
-    color: #197BEA;
-    font-size: 18px;
-	font-weight: bold;
-    font-family:"Helvetica"
-    text-align: left;
-    margin-left: 20px
+.probe .line{font-family:'Newsreader',Georgia,serif;font-size:1.1rem;line-height:1.55}
+.probe .arrow{color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:.85rem;margin:.35rem 0}
+.probe mark{background:var(--tint);color:var(--accent-deep);padding:.05em .25em;border-radius:3px;font-style:normal}
+.probe figcaption{margin-top:.9rem;font-size:.85rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:.75rem}
+.probe figcaption a{color:var(--accent-deep)}
+
+/* ---------- sections ---------- */
+section{padding-top:3.25rem}
+h2{
+  font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:1.55rem;
+  padding-bottom:.6rem;border-bottom:1px solid var(--rule);margin-bottom:1.4rem
 }
-div.author {
-    font-size: 18px;
-    font-family:"Helvetica"
-    text-align: left;
-    margin-left: 20px
-}
-div.desc {
-    font-size: 18px;
-    font-family:"Helvetica"
-    text-align: left;
-    margin-left: 20px
-}
-div.link {
-    color: #4477B1;
-    font-size: 18px;
-    font-family:"Helvetica"
-    text-align: left;
-    margin-left: 20px
-}
-.normal {
-	font-size: 20px;
-	font-family:"Helvetica";
-	text-align: left;
-}
-.etc {
-	font-size: 15px;
-	font-family:"Verdana";
-	text-align: left;
-}
-.special {
-	max-width:80%;
-	font-size: 14px;
-	font-weight: bold;
-	color: #333;
-}
--->
+h3{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:1.18rem;margin-bottom:.35rem;color:var(--accent-deep)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.3rem}
+
+/* ---------- full publications ---------- */
+::selection{background:var(--tint)}
+.hl{background:linear-gradient(180deg,transparent 58%,var(--tint) 58%);padding:0 .12em;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.probe .chip{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:.6rem}
+.count{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);font-weight:400;margin-left:.6rem;letter-spacing:.05em;white-space:nowrap}
+.grp{margin-bottom:2.6rem}
+.grp .lead{font-size:.92rem;color:var(--muted);max-width:44rem;margin:.2rem 0 1.1rem}
+.pubs{list-style:none}
+.pubs li{margin-bottom:1.05rem;max-width:46rem;border-left:2px solid transparent;padding-left:.85rem;margin-left:-.87rem;transition:border-color .15s ease,background-color .15s ease}
+.pubs li:hover{border-left-color:var(--accent);background-color:var(--card)}
+@media (prefers-reduced-motion:reduce){.pubs li{transition:none}}
+.pt{font-family:'Newsreader',Georgia,serif;font-size:1.05rem;line-height:1.4;display:block}
+.pa{display:block;font-size:.85rem;color:var(--ink);opacity:.85;margin-top:.1rem}
+.pv{display:block;font-size:.8rem;color:var(--muted);margin-top:.05rem}
+.ann{display:block;font-size:.84rem;color:var(--muted);font-style:italic;margin-top:.15rem}
+.pl{font-family:'IBM Plex Mono',monospace;font-size:.75rem}
+.note{font-size:.8rem;color:var(--muted);margin-bottom:1rem}
+
+footer{margin-top:4rem;padding:1.5rem 0 2.5rem;border-top:1px solid var(--rule);font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--muted)}
 </style>
 </head>
-
 <body>
-<center>
-    <!--<p class="etc">Last Updated: Dec 18, 2020</p>-->
-  <p></p>
-</center>
-<center>
-  <table width="80%" border="0">
-    <tbody><tr>
-      <!--<td width="4"><img src="./images/hyeju.jpg" width="190" height="200" alt="Hawaii"></td>-->
-      <td width="10"><img src="./images/hyeju_2020.png" height="300"  alt="Vancouver"></td>
-      <td width="100">&nbsp;</td>
-      <td width="900" valign="center" style="font-family: Bookman, Arial, Helvetica; font-size: 16px;"> 
-  <p><font size="10pt" color="black"><strong>Hyeju Jang</strong></font></p>
-  <p class="normal"> &nbsp; hyejuj at iu dot edu </p>
+<div class="wrap">
 
-<p class="normal">
-&nbsp Office: <br> 
-&nbsp Department of Computer Science, IT 346  <br>
-&nbsp Indiana University Indianapolis <br>
-&nbsp Luddy School of Informatics, Computing, and Engineering <br>
-&nbsp 535 W Michigan St <br>
-&nbsp Indianapolis, IN, 46202 <br> 
+<header>
+  <div class="masthead">
+    <img src="./images/hyeju_2020.png" alt="Portrait of Hyeju Jang">
+    <div>
+      <h1>Hyeju Jang</h1>
+      <p class="role">
+        Assistant Professor, <a href="https://luddy.indianapolis.iu.edu/departments/cs/index.html">Department of Computer Science</a><br>
+        Luddy School of Informatics, Computing, and Engineering<br>
+        <a href="https://www.iupui.edu/">Indiana University Indianapolis</a><br>
+        Affiliate Professor, <a href="https://www.cs.ubc.ca/">Computer Science, University of British Columbia</a>
+      </p>
+      <p class="contact">
+        <span>hyejuj [at] iu [dot] edu</span>
+        <span>IT 346, 535 W Michigan St, Indianapolis, IN</span>
+      </p>
+    </div>
+  </div>
+</header>
 
-</p>
-    </td></tr>
-  </tbody></table>
-</center>
-
-<center><div style="max-width:80%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;" align="left">
-<!--<div align="right"><p><a href="CV_hyejuj.pdf" class="special">Current CV</a></p></div>--><p>
+<div class="intro">
+  <p>
+    I study what language models are actually responding to when they judge human language.
+    When a model rates a text as coherent, or infers the intent behind a message, is it tracking
+    meaning and discourse structure, or <span class="hl">the wording and the speaker</span>? My recent work investigates
+    this with controlled probes: metaphorical rewrites that preserve propositional content, and
+    identity swaps that hold the message itself fixed. I then measure how model judgments shift.
   </p>
-<p class="normal">
-I am an assistant professor in the <a href="https://luddy.indianapolis.iu.edu/departments/cs/index.html"> Department of Computer Science</a> in the <a href="https://luddy.indianapolis.iu.edu/index.html"> Luddy School of Informatics, Computing, and Engineering </a> at <a href="https://www.iupui.edu/">Indiana University Indianapolis</a>.
-I am also an affiliate professor in the  <a href="https://www.cs.ubc.ca/"> Department of Computer Science </a> at the <a href="https://www.ubc.ca/"> University of British Columbia </a>. 
+  <p>
+    These probes build on work I have done since my PhD: computational models of metaphor and
+    figurative framing, and of discourse structure and coherence. These are the layers of
+    meaning beyond literal content, and the ones that <span class="hl">turn out to sway model judgments</span>.
+  </p>
+  <p>
+    This work is grounded in domains where language carries real consequences. My long-standing
+    collaborations in <span class="hl">health and education</span>, from detecting cognitive decline in speech and
+    eye-tracking data to analyzing clinician-patient communication at national scale, both
+    motivate the questions and provide the high-stakes settings where the answers matter.
+  </p>
+  <p>
+    I received my Ph.D. from the <a href="http://www.lti.cs.cmu.edu">Language Technologies Institute</a>
+    at Carnegie Mellon University, and was a
+    <a href="https://www.cihr-irsc.gc.ca/e/51211.html">CIHR Health System Impact Postdoctoral Fellow</a>
+    at the University of British Columbia and the BC Centre for Disease Control.
+  </p>
 
-
-<!--
-I am a research associate (research scientist) in the <a href="https://www.cs.ubc.ca/">Department of Computer Science</a> and the <a href="https://dsi.ubc.ca/">Data Science Institute</a> at the University of British Columbia. 
-I work with <a href="http://www.cs.ubc.ca/~carenini/">Giuseppe Carenini</a>, <a href="http://www.bccdc.ca/our-research/people/naveed-janjua">Naveed Janjua</a>, <a href="https://medicine.med.ubc.ca/profiles/thalia-field/">Thalia Field</a>, and <a href="https://id.med.ubc.ca/person/richard-lester/">Richard Lester</a>. 
-<br>
-<br>
-I was a CIHR Health System Impact Postdoctoral Fellow at the <a href="https://www.cs.ubc.ca/"> University of British Columbia </a> and <a href="http://www.bccdc.ca">BC Centre for Disease Control</a>. I received my Ph.D. from the <a href="http://www.lti.cs.cmu.edu">Language Technologies Institute</a> at <a href="https://www.cmu.edu/">Carnegie Mellon University</a>. My advisor was <a href="http://www.cs.cmu.edu/~cprose">Carolyn Rose</a>, and my thesis committee members were <a href="https://www.cs.cmu.edu/~hovy/">Eduard Hovy</a>, <a href="https://www.cs.cmu.edu/~morency/">Louis-Philippe Morency</a>, and <a href="http://www.cl.cam.ac.uk/~es407/index.html">Ekaterina Shutova</a>. i
--->
-</p>
-
-<p class="normal" align="justify">
-My work explores language use from a computational perspective to facilitate human communication. Using Machine Learning and Natural Language Processing (NLP) techniques, I discover patterns in text and build computational models of language use that are able to process large amounts of linguistic data. I investigate how people use language by bridging computer science and the disciplines of linguistics and psychology in the application domains such as health care and education.
-</p>
-
-<p class="normal" align="justify">
-I received my Ph.D. from the <a href="http://www.lti.cs.cmu.edu">Language Technologies Institute</a> at <a href="https://www.cmu.edu/">Carnegie Mellon University</a>. After that, I was a <a href="https://www.cihr-irsc.gc.ca/e/51211.html"> CIHR Health System Impact Postdoctoral Fellow </a> at the <a href="https://www.cs.ubc.ca/"> University of British Columbia </a> and <a href="http://www.bccdc.ca">BC Centre for Disease Control</a>.  
- 
-</p>
-<!--
-<p class="normal" align="justify">
-	<font color="#eb34eb">
-			I am seeking a highly motivated student with a strong background in ML/NLP for our Ph.D. program. If you are interested, please send me your resume, unofficial transcripts, and a brief description of your research interests. 
-	</font>
-	<br>
-	<font color="black">
-	Unfortunately, due to a large number of requests, I won’t be able to give individual feedback.
-	</font>
-</p>
-	-->
-
-<p align="justify">
-<!--My current project is to use text analytics for chronic disease management. My PhD dissertation aims to better understand how people use metaphor and to automatically identify a broader spectrum of predictors from the discourse context that contribute towards its detection and effect. -->
-</p>
-
-  
-  <div class="title">
-    <p><font color="white"><strong>&nbsp; PUBLICATIONS </strong></font></p>
-  </div>
-  <div class="etc"> * : equal contribution, alphabetically ordered </div>
-  <br>
-  <div class="subtitle" >Dissertation</div>
-    <br>
-    <div class="paper-title"> Computational Modeling of Metaphor in Discourse </div> 
-    <div class="desc"> PhD thesis, Carnegie Mellon University, 2017. </div>
-    <div class="link"> <a href="https://www.lti.cs.cmu.edu/people/alumni/alumni-thesis/jang-hyeju-thesis.pdf">[PDF]</a></div>
-	<br>
-	<div class="subtitle">2025</div>
-	<br>
-	<div class="paper-title"> Estimating the Risk of Depression and Care Burden among Dementia Caregivers: A Feasibility Study </div> 
-    <div class="author">  Omid Ghadami, Kruthika Gaddam, Mahesh Moodukonaje, <b>Hyeju Jang</b>*, Hee-Tae Jung* </div>
-    <div class="desc"> International Conference on the IEEE-EMBS Biomedical and Health Informatics (IEEE BHI) </div>
-	
-	<br>
-	<div class="paper-title"> Clinical Application of Large Languge Models for Intervention Plan Development in Speech-Language Pathology </div> 
-    <div class="author">  Namhee Kim, Mercy Homer, <b>Hyeju Jang</b> </div>
-    <div class="desc"> American Journal of Speech-Language Pathology (AJSLP) </div>
-
-	<br>
-	<div class="paper-title"> Large Language Models Are Better Logical Fallacy Reasoners with Counterargument, Explanation, and Goal-Aware Prompt Formulation </div> 
-    <div class="author">  Jiwon Jeong, <b>Hyeju Jang</b>*, Hogun Park* </div>
-    <div class="desc"> Findings of the Nations of the Americas Chapter of the Association for Computational Linguistics (NAACL) </div>
-	
-
-	<br>
-	<div class="paper-title"> Natural Language Processing to Evaluate Texting Conversations Between Patients and Healthcare Providers During COVID-19 Home-Based Care in Rwanda at Scale </div> 
-    <div class="author">  Richard T Lester, Matthew Manson, Muhammed Semakula, <b>Hyeju Jang</b>, Hassan Mugabo, Ali Magzari, Junhong Ma Blackmer, Fanan Fattah, Simon Pierre Niyonsenga, Edson Rwagasore, Charles Ruranga, Eric Remera, Jean Claude S. Ngabonziza, Giuseppe Carenini, Sabin Nsanzimana </div>
-    <div class="desc"> PLOS Digital Health </div>
-	<br>
-	<div class="subtitle">2024</div>
-	
-	
-	<br>
-	<div class="paper-title"> Generating Descriptive Explanations of Machine Learning Models Using LLM </div> 
-    <div class="author">  Andrew Pang, <b>Hyeju Jang</b>, and Shiaofen Fang </div>
-    <div class="desc"> From Theory to Practice: Workshop on Large Language and Foundation Models at IEEE Big Data </div>
-	<br>
-	<div class="paper-title"> Unsupervised Hypernymy Directionality Prediction Using Context Terms   </div> 
-    <div class="author">  Thushara Naduvilakandy, <b>Hyeju Jang</b>, Mohammad A. Hasan </div>
-    <div class="desc"> Natural Language Processing Journal </div>
-    <br>
-	
-	<div class="paper-title"> Multimodal Classification of Alzheimer’s Disease by Combining Facial and Eye-Tracking Data  </div> 
-    <div class="author"> Shih-Han Chou, Miini YC M Teng, Harshinee Sriram, Chuyuan Li, Giuseppe Carenini, Cristina Conati, Thalia Field, <b>Hyeju Jang</b>, Gabriel Murray </div>
-    <div class="desc"> Machine Learning for Health Symposium (ML4H) </div>
-    <br>
-	<div class="paper-title"> Improving Multi-hop Logical Reasoning in Knowledge Graphs with Context-Aware Query Representation Learning  </div> 
-    <div class="author"> Jeonghoon Kim, Heesoo Jung, <b>Hyeju Jang</b>, Hogun Park </div>
-    <div class="desc"> Findings of the Association for Computational Linguistics (ACL) </div>
-    <br>
-	<div class="paper-title"> Halu-NLP at SemEval-2024 Task 6: MetaCheckGPT - A Multi-task Hallucination Detection Using LLM Uncertainty and Meta-models  </div> 
-    <div class="author"> Rahul Mehta, Andrew Hoblitzell, Jack O’Keefe, <b>Hyeju Jang</b>, Vasudeva Varma </div>
-    <div class="desc"> International Workshop on Semantic Evaluation (SemEval) at NAACL </div>
-    <br>
-	
-	<div class="paper-title"> Public Attitudes Toward ChatGPT on Twitter: Sentiments, Topics, and Occupations  </div> 
-    <div class="author"> Ratanond Koonchanok, Yanling Pan, <b>Hyeju Jang</b> </div>
-    <div class="desc"> Social Network Analysis and Mining </div>
-    <br>
-	
-  	<div class="subtitle">2023</div>
-	<br>
-	<div class="paper-title"> Topic and Sentiment Analysis of Reddit’s Vaping-Cessation Community  </div> 
-    <div class="author"> Joongeun Choi, <b>Hyeju Jang</b></div>
-    <div class="desc"> IEEE International Conference on Bioinformatics and Biomedicine (BIBM) </div>
-    <br>
-	<div class="paper-title"> Prediction of Alzheimer's Using Deep-learning Methods on Webcam-Based Gaze Data  </div> 
-    <div class="author"> Anuj Harisinghani, Cristina Conati*, Giuseppe Carenini*, Thalia Field*, <b>Hyeju Jang</b>*, Gabriel Murray*</div>
-    <div class="desc"> ACM Symposium on Eye Tracking Research & Applications (ETRA) </div>
-    <br>
-  	<div class="subtitle">2022</div>
-    <br>
-	<div class="paper-title">  Evaluating Web-Based Automatic Transcription for Alzheimer Speech Data: Transcript Comparison and Machine Learning Analysis </div> 
-    <div class="author"> Thomas Soroski, Thiago da Cunha Vasco, Sally Newton-Mason, Saffrin Granby, Caitlin Lewis, Anuj Harisinghani, Matteo Rizzo, Cristina Conati, Gabriel Murray, Giuseppe Carenini, Thalia Field, <b>Hyeju Jang</b></div>
-    <div class="desc"> Journal of Medical Internet Research Aging (JMIR Aging) </div>
-    <div class="link"><a href="https://aging.jmir.org/2022/3/e33460">[PDF]</a></div> 
-     <br>
-    <div class="paper-title">  Tracking Public Attitudes toward COVID-19 Vaccination on Tweets in Canada: Using Aspect-based Sentiment Analysis </div> 
-    <div class="author"> <b>Hyeju Jang</b>, Emily Rempel, Ian Roe, Giuseppe Carenini, Naveed Janjua, Giuseppe Carenini</div>
-    <div class="desc"> Journal of Medical Internet Research (JMIR)</div>
-    <div class="link"><a href="https://www.jmir.org/2022/3/e35016/">[PDF]</a></div> 
-  <br>
-	<div class="subtitle">2021</div>
-    <br>
-    <div class="paper-title">  T3-Vis: a visual analytic framework for Training and fine-TuningTransformers in NLP</div> 
-    <div class="author"> Raymond Li, Wen Xiao, Lanjun Wang, <b> Hyeju Jang </b>, Giuseppe Carenini</div>
-    <div class="desc">  In Proceedings of Conference on Empirical Methods in Natural Language Processing (EMNLP)</div>
-    <div class="link"> <a href="https://aclanthology.org/2021.emnlp-demo.26/">[PDF]</a></div>
-    <br>
-    <div class="paper-title"> Classification of Alzheimer’s Disease Leveraging Multi-Task Machine Learning Analysis of Speech and Eye-Movement Data </div> 
-    <div class="author"><b> Hyeju Jang </b>, Thomas Soroski, Matteo Rizzo, Oswald Barral, Anuj Harisinghani, Sally Newton-Mason, Saffrin Granby, Caitlin Lewis, Pavan Tutt, Giuseppe Carenini, Cristina Conati, Thalia Field</div>
-    <div class="desc">  Frontiers in Human Neuroscience, vol. 15 (2021) </div>
-    <div class="link"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8488259/">[PDF]</a></div> 
-    <br>
-    <div class="paper-title"> Classification of
-Alzheimer’s Disease Leveraging Multi-Task Language and Eye-Movement Data </div> 
-    <div class="author"><b> Hyeju Jang </b>, Thomas Soroski, Oswald Barral, Anuj Harisinghani, Matteo Rizzo, Saffrin Granby, Sally Newton-
-Mason, Pavan Tutt, Caitlin Lewis, Giuseppe Carenini, Cristina Conati, Thalia Field  </div>
-    <div class="desc">  Workshop on AI for Aging,
-Rehabiliation and Intelligent Assisted Living (ARIAL) at IJCAI </div>
-    <br>
-    <div class="paper-title">  KW-ATTN: Knowledge
-Infused Attention for Accurate and Interpretable Text Classification</div> 
-    <div class="author"><b> Hyeju Jang </b>, Seojin Bang, Wen Xiao, Giuseppe Carenini, Raymond Ng, Young Ji Lee  </div>
-    <div class="desc"> In Proceedings of Deep Learning Inside Out (DeeLIO): The 2nd Workshop on Knowledge Extraction and Integration for Deep Learning Architectures at NAACL, pp. 96-107 </div>
-    <div class="link"><a href="https://www.aclweb.org/anthology/2021.deelio-1.pdf#page=104">[PDF]</a></div>
-    <br>
-    <div class="paper-title"> Tracking COVID-19 Discourse on Twitter in North America: Infodemiology Study Using Topic Modeling and Aspect-based Sentiment Analysis </div> 
-    <div class="author"><b> Hyeju Jang </b>, Emily Rempel, David Roth, Giuseppe Carenini, Naveed Z. Janjua  </div>
-    <div class="desc"> Journal of Medical Internet Research (JMIR) </div>
-    <div class="link"><a href="https://www.jmir.org/2021/2/e25431/">[PDF]</a></div>
-    <br>
-    <div class="paper-title"> Identifying Language Features Associated with Needs of Ovarian Cancer Patients and Caregivers Using Social Media </div> 
-    <div class="author">  Young Ji Lee, <b> Hyeju Jang </b>, Grace Campbell, Giuseppe Carenini, Teresa Thomas, Heidi Donovan </div>
-    <div class="desc"> Cancer Nursing </div>
-    <div class="link"><a href="https://europepmc.org/article/med/33577203">[PDF]</a></div>
-    <br>
-    <div class="paper-title"> Exploring Neural Models for Predicting Dementia from Language </div> 
-    <div class="author">  Weirui Kong, <b> Hyeju Jang </b>, Giuseppe Carenini, Thalia Field </div>
-    <div class="desc"> Computer Speech and Language, 68 (2021) 101181 </div>
-    <div class="link"><a href="https://www.sciencedirect.com/science/article/pii/S0885230820301145?casa_token=tMgengmMBxQAAAAA:wICuPOJi3bivsX1LXk7QGMa4X_RRFjRRz3Pp2rGeDiS1QRaqoalY4ker41ZS2iE0xBzsw5IJ0qI">[PDF]</a></div>
-    <br>
-  	<div class="subtitle">2020</div>
-    <br>
-    <div class="paper-title"> Exploratory Analysis of COVID-19 Related Tweets in North America to Inform Public Health Institutes </div> 
-    <div class="author">  <b> Hyeju Jang </b>, Emily Rempel, Giuseppe Carenini, Naveed Janjua </div>
-    <div class="desc"> In Proceedings of EMNLP Workshop on NLP for COVID-19 (Part 2) </div>
-    <div class="link"><a href="https://www.aclweb.org/anthology/2020.nlpcovid19-2.18/">[PDF]</a></div>
-    <br>
-    <div class="paper-title"> Non-Invasive Classification of Alzheimer’s Disease Using Eye Tracking and Language </div> 
-    <div class="author"> Oswald Barral*, <b> Hyeju Jang</b>*, Sally Newton-Mason, Sheetal Shajan, Thomas Soroski, Giuseppe Carenini, Cristina Conati, Thalia Field </div>
-    <div class="desc"> In Proceedings of Machine Learning for Healthcare Conference (MLHC), pp. 813-841</div>
-    <div class="link"><a href="http://proceedings.mlr.press/v126/barral20a">[PDF]</a></div>
-    <br>
-    <div class="paper-title"> Stigma Annotation Scheme and Stigmatized Language Detection in Health-Care Discussions on Social Media     </div> 
-    <div class="author"> Nadiya Straton, <b> Hyeju Jang</b>, Raymond Ng </div>
-    <div class="desc"> In Proceedings of The 12th Language Resources and Evaluation Conference (LREC), pp. 1178-1190 </div>
-    <div class="link"><a href="https://www.aclweb.org/anthology/2020.lrec-1.148/"> [PDF]</a></div>
-    <br>
-  	<div class="subtitle">2019</div>
-    <br>
-    <div class="paper-title"> OCTVis: Ontology-based Comparison of Topic Models </div> 
-    <div class="author"> Amon Ge, <b> Hyeju Jang</b>, Giuseppe Carenini, Kendall Ho, Young Ji Lee</div>
-    <div class="desc">In Proceedings of IEEE Visualization Conference (VIS), pp. 66-70</div>
-    <div class="link"><a href="https://ieeexplore.ieee.org/abstract/document/8933646">[PDF]</a></div>
-    <br>
-    <div class="paper-title"> Predictive modelling of stigmatized behaviour in vaccination discussions on Facebook </div> 
-    <div class="author"> Nadiya Straton, Raymond Ng, <b> Hyeju Jang</b>, Ravi Vatrapu, Raghava Rao Mukkaamala</div>
-    <div class="desc"> In Proceedings of IEEE International Conference on Bioinformatics and Biomedicine (BIBM), pp. 2561-2568</div>
-    <div class="link"><a href="https://ieeexplore.ieee.org/abstract/document/8983175">[PDF]</a></div>
-    <br>
-    <div class="paper-title"> Computational modeling of stigmatized behaviour in pro-vaccination and anti-vaccination discussions on social media </div> 
-    <div class="author"> Nadiya Straton, <b> Hyeju Jang</b>, Raymond Ng, Ravi Vatrapu, Raghava Rao Mukkaamala</div>
-    <div class="desc"> In Proceedings of IEEE International Conference on Bioinformatics and Biomedicine (BIBM), pp. 2673-2681</div>
-    <div class="link"><a href="https://ieeexplore.ieee.org/abstract/document/8983311">[PDF]</a></div>
-    <br>
-    <div class="paper-title">  A Neural Model for Predicting Dementia from Language</div> 
-    <div class="author"> Weirui Kong, <b> Hyeju Jang</b>, Giuseppe Carenini, Thalia Field</div>
-    <div class="desc"> In Proceedings of Machine Learning for Healthcare Conference (MLHC), pp. 270-286 </div>
-    <div class="link"><a href="http://proceedings.mlr.press/v106/kong19a.html">[PDF]</a></div>
-    <br>
-    <div class="paper-title">  Predicting Patient Needs on an Ovarian Cancer Online Discussion Forum</div> 
-    <div class="author"> <b> Hyeju Jang</b>, Young Ji Lee, Giuseppe Carnenini, Raymond Ng, Grace Campbell, Kendall Ho</div>
-    <div class="desc"> In Proceedings of Canadian Conference on Artificial Intelligence (CanAI), pp. 492-497 </div>
-    <div class="link"><a href="https://link.springer.com/chapter/10.1007/978-3-030-18305-9_50">[PDF]</a></div>
-    <br>
-  	<div class="subtitle">2018</div>
-    <br>
-    <div class="paper-title">  Exploring Discourse Coherence Features for Dementia Detection</div> 
-    <div class="author"> <b> Hyeju Jang</b>, Vaden Masrani, Giuseppe Carenini, Raymond Ng, Gabriel Murray, Thalia Field</div>
-    <div class="desc"> 5th Pacific Northwest Regional NLP Workshop (NW-NLP) </div>
-    <br>
-    <div class="paper-title">  Infrequent Discourse Relation Identification Using Data Programming</div> 
-    <div class="author"> Xing Zeng, Giuseppe Carenini, Raymond Ng, <b> Hyeju Jang</b> </div>
-    <div class="desc"> 5th Pacific Northwest Regional NLP Workshop (NW-NLP) </div>
-    <br>
-  	<div class="subtitle">2017</div>
-    <br>
-    <div class="paper-title">  Finding Structure in Figurative Language: Metaphor Detection with Topic-based Frames</div> 
-    <div class="author"> <b> Hyeju Jang</b>, Keith Maki, Eduard Hovy, Carolyn Penstein Rosé </div>
-    <div class="desc">  In Proceedings of the 18th Annual SIGdial Meeting on Discourse and Dialogue (SIGDIAL), pp. 320-330</div>
-    <div class="link"><a href="https://www.aclweb.org/anthology/W17-5538/">[PDF]</a></div>
-    <br>
-    <div class="paper-title">  Modeling Dialogue Acts Using Content Word Filtering and Speaker Preferences</div> 
-    <div class="author"> Yohan Jo, Michael Miller, <b> Hyeju Jang</b>, Carolyn Penstein Rosé </div>
-    <div class="desc">  In Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), pp. 2169-2179 </div>
-    <div class="link"><a href="https://www.aclweb.org/anthology/D17-1232/">[PDF]</a></div>
-    <br>
-  	<div class="subtitle">2016</div>
-    <br>
-    <div class="paper-title"> Metaphor Detection with Topic Transition, Emotion and Cognition in Context</div> 
-    <div class="author"> <b> Hyeju Jang</b>, Yohan Jo, Qinlan Shen, Michael Miller, Seungwhan Moon, Carolyn Penstein Rosé </div>
-    <div class="desc"> In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (ACL), pp. 216-225 </div>
-    <div class="link"><a href="https://www.aclweb.org/anthology/P16-1021.pdf">[PDF]</a></div>
-    <br>
-    <div class="paper-title">Developing, evaluating, and refining an automatic generator of diagnostic multiple choice cloze questions to assess children's comprehension while reading </div> 
-    <div class="author"> Jack Mostow, Yi-Ting Huang, <b> Hyeju Jang</b>, Anders Weinstein, Joe Valeri, Donna Gates </div>
-    <div class="desc">  Natural Language Engineering, doi:10.1017/S1351324916000024, pp. 1-50 </div>
-    <div class="link"> <a href="https://link.springer.com/article/10.1007/s40593-013-0012-6">[PDF]</a></div>
-    <br>
-  	<div class="subtitle">2015</div>
-    <br>
-    <div class="paper-title"> Metaphor Detection in Discourse</div> 
-    <div class="author"> <b> Hyeju Jang</b>, Seunghwan Moon, Yohan Jo, Carolyn Penstein Rosé </div>
-    <div class="desc"> In Proceedings of the 16th Annual Meeting of the Special Interest Group on Discourse and Dialogue (SIGDIAL), pp. 384-392.</div>
-    <div class="link"><a href="https://www.aclweb.org/anthology/W15-4650.pdf">[PDF]</a></div>
-    <br>
-    <div class="paper-title">Effects of Situational Factors on Metaphor Detection in an Online Discussion Forum </div> 
-    <div class="author"> <b> Hyeju Jang</b>, Miaomiao Wen, Carolyn Penstein Rosé </div>
-    <div class="desc"> In Proceedings of the Third Workshop on Metaphor in NLP at NAACL, pp. 1-10 </div>
-    <div class="link"><a href="https://www.aclweb.org/anthology/W15-1401.pdf">[PDF]</a></div>
-    <br>
-  	<div class="subtitle">2014</div>
-    <br>
-    <div class="paper-title">Towards an agile approach to adapting dynamic collaboration support to student needs </div> 
-    <div class="author"> David Adamson, Gregory Dyke, <b> Hyeju Jang</b>, Carolyn Penstein Rosé </div>
-    <div class="desc"> International Journal of Artificial Intelligence in Education 24.1 (2014): 92-124 </div>
-    <div class="link"><a href="https://link.springer.com/article/10.1007/s40593-013-0012-6">[PDF]</a></div>
-    <br>
-    <div class="paper-title">Conversational Metaphors in Use: Exploring the Contrast between Technical and Every Day Notions of Metaphor </div> 
-    <div class="author"> <b> Hyeju Jang</b>, Mario Piergallini, Miaomiao Wen, Carolyn Penstein Rosé </div>
-    <div class="desc"> In Proceedings of the Second Workshop on Metaphor in NLP at ACL, pp. 1-10</div>
-    <div class="link"><a href="https://www.aclweb.org/anthology/W14-2301.pdf">[PDF]</a></div>
-    <br>
-  	<div class="subtitle">2013</div>
-    <br>
-    <div class="paper-title">Intensification of Group Knowledge Exchange with Academically Productive Talk Agents </div> 
-    <div class="author"> David Adamson, Colin Ashe, <b> Hyeju Jang</b>, David Yaron, Carolyn Penstein Rosé </div>
-    <div class="desc"> In Proceedings of the Conference on Computer Collaborative Supportive Learning (CSCL), pp. 10-17 </div>
-    <div class="link"><a href="https://www.cs.cmu.edu/afs/cs.cmu.edu/Web/People/dadamson/pubs/2013_Adamson_APT_Intensification.pdf">[PDF]</a></div>
-    <br>
-    <div class="paper-title">Extracting Events with Informal Temporal References in Personal Histories in Online Communities </div> 
-    <div class="author"> Miaomiao Wen, Zeyu Zheng, <b> Hyeju Jang</b>, Guang Xiang, Carolyn Penstein Rosé </div>
-    <div class="desc"> In Proceedings of the 51st Annual Meeting of the Association for Computational Linguistics (ACL), pp. 836-842</div>
-    <div class="link"><a href="https://www.aclweb.org/anthology/P13-2145.pdf">[PDF]</a></div>
-    <br>
-  	<div class="subtitle">2012</div>
-    <br>
-    <div class="paper-title">Inferring Selectional Preferences from Part-of-Speech N-grams </div> 
-    <div class="author"> <b> Hyeju Jang</b>, Jack Mostow </div>
-    <div class="desc">In Proceedings of the 13th Conference of the European Chapter of the Association for Computational Linguistics (EACL), pp. 377-386 </div>
-    <div class="link"><a href="https://www.aclweb.org/anthology/E12-1038.pdf">[PDF]</a></div>
-    <br>
-    <div class="paper-title">Generating Diagnostic Multiple Choice Comprehension Cloze Questions </div> 
-    <div class="author"> Jack Mostow, <b> Hyeju Jang</b> </div>
-    <div class="desc">  In Proceedings of the Seventh Workshop on Building Educational Applications Using NLP at NAACL, pp. 136-146 </div>
-    <div class="link"><a href="https://www.aclweb.org/anthology/W12-2016.pdf">[PDF]</a></div>
-    <br>
-  	<div class="subtitle">2011</div>
-    <br>
-    <div class="paper-title">Procedural Entity Extraction for Procedural Knowledge on Medline Abstracts </div> 
-    <div class="author"> Sakwang Song, Hungsun Oh, Yoonjung Choi, <b> Hyeju Jang</b>, Sung-Hyon Myaeng, Sungpil Choi, Yunsoo Choi </div>
-    <div class="desc">  In Proceedings of the Korean Information Science Society Conference, pp. 154-157 </div>
-    <div class="link"><a href="https://www.koreascience.or.kr/article/CFKO201128451824424.page">[PDF]</a> <i>In Korean</i></div>
-    <br>
-  	<div class="subtitle">2010</div>
-    <br>
-    <div class="paper-title">Personal Information Access Using Proactive Search and Mobile Hypertext </div> 
-    <div class="author"> <b> Hyeju Jang</b>, Seongchan Kim, Wookhyun Shin, Sung-Hyon Myaeng </div>
-    <div class="desc"> IEEE Intelligent Systems, vol. 25, no. 1, pp. 27-36 </div>
-    <div class="link"> <a href="https://ieeexplore.ieee.org/abstract/document/5432258">[PDF]</a></div>
-    <br>
-  	<div class="subtitle">2008</div>
-    <br>
-    <div class="paper-title"> Personalized Healthcare through Intelligent Gadgets</div> 
-    <div class="author"> <b> Hyeju Jang</b>, Sanghyun Kim, Changseok Bae </div>
-    <div class="desc"> In Proceedings of the 30th Annual International Conference IEEE Engineering in Medicine and Biology Society (IEEE-EMBC), pp. 3308-3311 </div>
-    <div class="link"><a href="https://ieeexplore.ieee.org/abstract/document/4649912?casa_token=27joSiMNaikAAAAA:onQM4dGL1Tagn4EyqpcmtJ6obOvuE9YWee0EFvabGUxBRfKFsI8oEcJwSvEdv2ck6lnH1jt3w4o">[PDF]</a></div>
-    <br>
-    <div class="paper-title"> Context Representation of Intelligent Gadgets for Event-driven Services</div> 
-    <div class="author"> <b> Hyeju Jang</b>, Kuksang Jeong, Jongho Won, Changseok Bae</div>
-    <div class="desc"> In Proceedings of the International Conference on Consumer Electronics (ICCE), pp. 1-2 </div>
-    <div class="link"><a href="https://ieeexplore.ieee.org/abstract/document/4587984?casa_token=ocZIx9OetTUAAAAA:Vo9iyjbBrjPmHiS59nuWprrJr5q6kRaP82K8nA4sRip3-Im4Hrrv9GBeCevVUIfqpoRW4bp4LTI">[PDF]</a></div>
-    <br>
-  	<div class="subtitle">2007</div>
-    <br>
-    <div class="paper-title"> MEMORIA: Personal Memento Service Using Intelligent Gadgets</div> 
-    <div class="author"> <b> Hyeju Jang</b>, Jongho Won, Changseok Bae</div>
-    <div class="desc">  In Proceedings of the HCI International Conference (HCII), pp. 331-339 </div>
-    <div class="link"><a href="https://link.springer.com/chapter/10.1007/978-3-540-73110-8_35">[PDF]</a></div>
-    <br>
-  	<div class="subtitle">2006</div>
-    <br>
-    <div class="paper-title"> Integration of Low Level Linguistic Information for Clinical Document Semantic Tagging</div> 
-    <div class="author"> <b> Hyeju Jang</b>, Yun Jin, Sung Hyon Myaeng</div>
-    <div class="desc">  In Proceedings of the IEEE Conference on Information Reuse and Integration (IEEE-IRI), pp. 292-297 </div>
-    <div class="link"><a href="https://ieeexplore.ieee.org/abstract/document/4018505?casa_token=sqJUc80ylRkAAAAA:1j1Mr8qUdqAlt8RQlZnS42DdUvRtQX1zdKTHybFMsNeE5A8dSg1HakJBrK0ciGfNw-wTXMN5aAw">[PDF]</a></div>
-    <br>
-    <div class="paper-title"> Text Mining for Medical Documents Using a Hidden Markov Model</div> 
-    <div class="author"> <b> Hyeju Jang</b>, Sa Kwang Song, Sung Hyon Myaeng</div>
-    <div class="desc">  In Proceedings of the Asia Information Retrieval Symposium (AIRS), LNCS 4182, pp. 553-559 </div>
-    <div class="link"><a href="https://link.springer.com/chapter/10.1007/11880592_45">[PDF]</a></div>
-    <br>
-    <div class="paper-title"> Semantic Tagging for Medical Knowledge Tracking </div> 
-    <div class="author"> <b> Hyeju Jang</b>, Sa Kwang Song, Sung Hyon Myaeng</div>
-    <div class="desc">  In Proceedings of the 28th Annual International Conference IEEE Engineering in Medicine and Biology Society (IEEE-EMBC), pp. 6257-6260 </div>
-    <div class="link"><a href="https://ieeexplore.ieee.org/abstract/document/4463239?casa_token=e7OzGTEP5o0AAAAA:9hDqjsfuqSO-_iJkh49gGmkw1AqSj9PwVnq5knpXEOWW5ObGzjaXE1N6AHP9XmxjG090EIOo2nM">[PDF]</a></div>
-    <br>
-    <div class="paper-title"> High Level Semantic Tagging in Clinical Documents Using a HMM Model </div> 
-    <div class="author"> <b> Hyeju Jang</b>, Sa Kwang Song, Sung Hyon Myaeng</div>
-    <div class="desc">  In Proceedings of the Korean Information Science Society Conference, pp. 19-21  </div>
-    <div class="link"><a href="https://www.koreascience.or.kr/article/CFKO200625121628319.page">[PDF]</a>  <i>In Korean</i></div>
-    <br>
-    <div class="paper-title">  Design of Topic Detection and Tracking System for QA in Encyclopedia </div> 
-    <div class="author"> <b> Hyeju Jang</b>, Yuchul Jung, Bo-Yeong Kang, Sa Kwang Song, Yun Jin, Hoon Song, Sung Hyon Myaeng</div>
-    <div class="desc">  In Proceedings of the Korean Information Science Society Conference, pp. 22-24 </div>
-    <div class="link"><a href="https://www.koreascience.or.kr/article/CFKO200625121628362.page">[PDF]</a> <i>In Korean</i></div>
-    <br>
-
-    
-  </div>
-  
+  <figure class="probe">
+    <div class="chip">A controlled probe</div>
+    <div class="line">&hellip;He helped the man who was <mark>near death</mark>, saved his life&hellip;</div>
+    <div class="arrow">&darr;&nbsp; rewrite &middot; same propositional content</div>
+    <div class="line">&hellip;He helped the man who was <mark>within a whisper of death</mark>, saved his life&hellip;</div>
+    <figcaption>
+      The two sentences say the same thing, but across nine language models the metaphorical
+      version systematically receives <em>higher</em> discourse-coherence scores. Metaphor tends
+      to make coherence look better than it is.
+      <span class="mono">&rarr; A Mirage of Coherence, COLM 2026</span>
+    </figcaption>
+  </figure>
 </div>
-</center>
-<p>
 
 
+<section id="publications">
+  <h2>Publications</h2>
+  <p class="note">Grouped by the threads that run through my work; within each thread, newest first. * equal contribution, alphabetically ordered.</p>
 
-</p></body></html>
+  <div class="grp">
+    <h3>How language models judge, and when to trust them <span class="count">6 papers</span></h3>
+    <p class="lead">Language models now judge human text: its coherence, the intent behind it, its reliability. This thread asks what those judgments actually respond to. The recurring finding: hold the content fixed, change the surface (a metaphor, a speaker&rsquo;s identity), and the judgment moves.</p>
+    <ul class="pubs">
+    <li>
+      <span class="pt">A Mirage of Coherence: How Metaphor Impacts Language Models&rsquo; Discourse Coherence Assessment</span>
+      <span class="pa">Wanting Ning, Brian Choi, Eun Jin Paek, <strong>Hyeju Jang</strong></span>
+      <span class="pv">Conference on Language Modeling (COLM) 2026, to appear</span>
+      <span class="ann">Meaning-preserving metaphorical rewrites systematically inflate models&rsquo; coherence judgments.</span>
+    </li>
+    <li>
+      <span class="pt">Investigating Counterfactual Unfairness in LLMs towards Identities through Humor</span>
+      <span class="pa">Shubin Kim, Yejin Son, Junyeong Park, Keummin Ka, Seungbeen Lee, Jaeyoung Lee, <strong>Hyeju Jang</strong>, Alice Oh, Youngjae Yu</span>
+      <span class="pv">Annual Meeting of the Association for Computational Linguistics (ACL), pp. 44092&ndash;44138, 2026</span>
+      <span class="ann">Swapping who speaks and who is addressed, with content held fixed, shifts models&rsquo; judgments of the same joke.</span>
+      <span class="pl"><a href="https://aclanthology.org/2026.acl-long.2041/">[link]</a></span>
+    </li>
+    <li>
+      <span class="pt">Large Language Models Are Better Logical Fallacy Reasoners with Counterargument, Explanation, and Goal-Aware Prompt Formulation</span>
+      <span class="pa">Jiwon Jeong, <strong>Hyeju Jang</strong>*, Hogun Park*</span>
+      <span class="pv">Findings of the Nations of the Americas Chapter of the Association for Computational Linguistics (NAACL), 2025</span>
+    </li>
+    <li>
+      <span class="pt">Halu-NLP at SemEval-2024 Task 6: MetaCheckGPT - A Multi-task Hallucination Detection Using LLM Uncertainty and Meta-models</span>
+      <span class="pa">Rahul Mehta, Andrew Hoblitzell, Jack O&rsquo;Keefe, <strong>Hyeju Jang</strong>, Vasudeva Varma</span>
+      <span class="pv">International Workshop on Semantic Evaluation (SemEval) at NAACL, 2024</span>
+      <span class="ann">Ranked 1st, model-agnostic track.</span>
+    </li>
+    <li>
+      <span class="pt">T3-Vis: A Visual Analytic Framework for Training and Fine-Tuning Transformers in NLP</span>
+      <span class="pa">Raymond Li, Wen Xiao, Lanjun Wang, <strong>Hyeju Jang</strong>, Giuseppe Carenini</span>
+      <span class="pv">Conference on Empirical Methods in Natural Language Processing (EMNLP), 2021</span>
+      <span class="pl"><a href="https://aclanthology.org/2021.emnlp-demo.26/">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">KW-ATTN: Knowledge Infused Attention for Accurate and Interpretable Text Classification</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Seojin Bang, Wen Xiao, Giuseppe Carenini, Raymond Ng, Young Ji Lee</span>
+      <span class="pv">Deep Learning Inside Out (DeeLIO) Workshop at NAACL, pp. 96&ndash;107, 2021</span>
+      <span class="pl"><a href="https://www.aclweb.org/anthology/2021.deelio-1.pdf#page=104">[PDF]</a></span>
+    </li>
+    </ul>
+  </div>
+
+  <div class="grp">
+    <h3>Metaphor, framing, and discourse structure <span class="count">8 papers</span></h3>
+    <p class="lead">The layers of meaning beyond literal content: how figurative language reframes what it describes, and how discourse organization guides a reader. My PhD line, and now the probe material for the thread above.</p>
+    <ul class="pubs">
+    <li>
+      <span class="pt">Infrequent Discourse Relation Identification Using Data Programming</span>
+      <span class="pa">Xing Zeng, Giuseppe Carenini, Raymond Ng, <strong>Hyeju Jang</strong></span>
+      <span class="pv">5th Pacific Northwest Regional NLP Workshop (NW-NLP), 2018</span>
+    </li>
+    <li>
+      <span class="pt">Finding Structure in Figurative Language: Metaphor Detection with Topic-based Frames</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Keith Maki, Eduard Hovy, Carolyn Penstein Ros&eacute;</span>
+      <span class="pv">18th Annual SIGDIAL Meeting on Discourse and Dialogue, pp. 320&ndash;330, 2017</span>
+      <span class="pl"><a href="https://www.aclweb.org/anthology/W17-5538/">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Modeling Dialogue Acts Using Content Word Filtering and Speaker Preferences</span>
+      <span class="pa">Yohan Jo, Michael Miller, <strong>Hyeju Jang</strong>, Carolyn Penstein Ros&eacute;</span>
+      <span class="pv">Conference on Empirical Methods in Natural Language Processing (EMNLP), pp. 2169&ndash;2179, 2017</span>
+      <span class="pl"><a href="https://www.aclweb.org/anthology/D17-1232/">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Computational Modeling of Metaphor in Discourse</span>
+      <span class="pa"><strong>Hyeju Jang</strong></span>
+      <span class="pv">PhD thesis, Carnegie Mellon University, 2017</span>
+      <span class="pl"><a href="https://www.lti.cs.cmu.edu/people/alumni/alumni-thesis/jang-hyeju-thesis.pdf">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Metaphor Detection with Topic Transition, Emotion and Cognition in Context</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Yohan Jo, Qinlan Shen, Michael Miller, Seungwhan Moon, Carolyn Penstein Ros&eacute;</span>
+      <span class="pv">54th Annual Meeting of the Association for Computational Linguistics (ACL), pp. 216&ndash;225, 2016</span>
+      <span class="pl"><a href="https://www.aclweb.org/anthology/P16-1021.pdf">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Metaphor Detection in Discourse</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Seungwhan Moon, Yohan Jo, Carolyn Penstein Ros&eacute;</span>
+      <span class="pv">16th Annual SIGDIAL Meeting on Discourse and Dialogue, pp. 384&ndash;392, 2015</span>
+      <span class="pl"><a href="https://www.aclweb.org/anthology/W15-4650.pdf">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Effects of Situational Factors on Metaphor Detection in an Online Discussion Forum</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Miaomiao Wen, Carolyn Penstein Ros&eacute;</span>
+      <span class="pv">Third Workshop on Metaphor in NLP at NAACL, pp. 1&ndash;10, 2015</span>
+      <span class="pl"><a href="https://www.aclweb.org/anthology/W15-1401.pdf">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Conversational Metaphors in Use: Exploring the Contrast between Technical and Every Day Notions of Metaphor</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Mario Piergallini, Miaomiao Wen, Carolyn Penstein Ros&eacute;</span>
+      <span class="pv">Second Workshop on Metaphor in NLP at ACL, pp. 1&ndash;10, 2014</span>
+      <span class="pl"><a href="https://www.aclweb.org/anthology/W14-2301.pdf">[PDF]</a></span>
+    </li>
+    </ul>
+  </div>
+
+  <div class="grp">
+    <h3>Language as a signal of cognition and health <span class="count">13 papers</span></h3>
+    <p class="lead">How people speak reflects how they think and feel. With clinical collaborators, this thread models speech, gaze, and discourse patterns as markers of cognitive decline and mental state, including work built on a prospectively collected clinical cohort.</p>
+    <ul class="pubs">
+    <li>
+      <span class="pt">Estimating the Risk of Depression and Care Burden among Dementia Caregivers: A Feasibility Study</span>
+      <span class="pa">Omid Ghadami, Kruthika Gaddam, Mahesh Moodukonaje, <strong>Hyeju Jang</strong>*, Hee-Tae Jung*</span>
+      <span class="pv">IEEE-EMBS International Conference on Biomedical and Health Informatics (IEEE BHI), 2025</span>
+    </li>
+    <li>
+      <span class="pt">Clinical Application of Large Language Models for Intervention Plan Development in Speech-Language Pathology</span>
+      <span class="pa">Namhee Kim, Mercy Homer, <strong>Hyeju Jang</strong></span>
+      <span class="pv">American Journal of Speech-Language Pathology (AJSLP), 2025</span>
+    </li>
+    <li>
+      <span class="pt">Multimodal Classification of Alzheimer&rsquo;s Disease by Combining Facial and Eye-Tracking Data</span>
+      <span class="pa">Shih-Han Chou, Miini YC M Teng, Harshinee Sriram, Chuyuan Li, Giuseppe Carenini, Cristina Conati, Thalia Field, <strong>Hyeju Jang</strong>, Gabriel Murray</span>
+      <span class="pv">Machine Learning for Health Symposium (ML4H), 2024</span>
+    </li>
+    <li>
+      <span class="pt">Prediction of Alzheimer&rsquo;s Using Deep-learning Methods on Webcam-Based Gaze Data</span>
+      <span class="pa">Anuj Harisinghani, Cristina Conati*, Giuseppe Carenini*, Thalia Field*, <strong>Hyeju Jang</strong>*, Gabriel Murray*</span>
+      <span class="pv">ACM Symposium on Eye Tracking Research &amp; Applications (ETRA), 2023</span>
+    </li>
+    <li>
+      <span class="pt">Evaluating Web-Based Automatic Transcription for Alzheimer Speech Data: Transcript Comparison and Machine Learning Analysis</span>
+      <span class="pa">Thomas Soroski, Thiago da Cunha Vasco, Sally Newton-Mason, Saffrin Granby, Caitlin Lewis, Anuj Harisinghani, Matteo Rizzo, Cristina Conati, Gabriel Murray, Giuseppe Carenini, Thalia Field, <strong>Hyeju Jang</strong></span>
+      <span class="pv">Journal of Medical Internet Research Aging (JMIR Aging), 2022</span>
+      <span class="pl"><a href="https://aging.jmir.org/2022/3/e33460">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Classification of Alzheimer&rsquo;s Disease Leveraging Multi-Task Machine Learning Analysis of Speech and Eye-Movement Data</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Thomas Soroski, Matteo Rizzo, Oswald Barral, Anuj Harisinghani, Sally Newton-Mason, Saffrin Granby, Caitlin Lewis, Pavan Tutt, Giuseppe Carenini, Cristina Conati, Thalia Field</span>
+      <span class="pv">Frontiers in Human Neuroscience, vol. 15, 2021</span>
+      <span class="pl"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8488259/">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Classification of Alzheimer&rsquo;s Disease Leveraging Multi-Task Language and Eye-Movement Data</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Thomas Soroski, Oswald Barral, Anuj Harisinghani, Matteo Rizzo, Saffrin Granby, Sally Newton-Mason, Pavan Tutt, Caitlin Lewis, Giuseppe Carenini, Cristina Conati, Thalia Field</span>
+      <span class="pv">Workshop on AI for Aging, Rehabilitation and Intelligent Assisted Living (ARIAL) at IJCAI, 2021</span>
+    </li>
+    <li>
+      <span class="pt">Identifying Language Features Associated with Needs of Ovarian Cancer Patients and Caregivers Using Social Media</span>
+      <span class="pa">Young Ji Lee, <strong>Hyeju Jang</strong>, Grace Campbell, Giuseppe Carenini, Teresa Thomas, Heidi Donovan</span>
+      <span class="pv">Cancer Nursing, 2021</span>
+      <span class="pl"><a href="https://europepmc.org/article/med/33577203">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Exploring Neural Models for Predicting Dementia from Language</span>
+      <span class="pa">Weirui Kong, <strong>Hyeju Jang</strong>, Giuseppe Carenini, Thalia Field</span>
+      <span class="pv">Computer Speech and Language, 68, 101181, 2021</span>
+      <span class="pl"><a href="https://www.sciencedirect.com/science/article/pii/S0885230820301145">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Non-Invasive Classification of Alzheimer&rsquo;s Disease Using Eye Tracking and Language</span>
+      <span class="pa">Oswald Barral*, <strong>Hyeju Jang</strong>*, Sally Newton-Mason, Sheetal Shajan, Thomas Soroski, Giuseppe Carenini, Cristina Conati, Thalia Field</span>
+      <span class="pv">Machine Learning for Healthcare Conference (MLHC), pp. 813&ndash;841, 2020</span>
+      <span class="pl"><a href="http://proceedings.mlr.press/v126/barral20a">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">A Neural Model for Predicting Dementia from Language</span>
+      <span class="pa">Weirui Kong, <strong>Hyeju Jang</strong>, Giuseppe Carenini, Thalia Field</span>
+      <span class="pv">Machine Learning for Healthcare Conference (MLHC), pp. 270&ndash;286, 2019</span>
+      <span class="pl"><a href="http://proceedings.mlr.press/v106/kong19a.html">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Predicting Patient Needs on an Ovarian Cancer Online Discussion Forum</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Young Ji Lee, Giuseppe Carenini, Raymond Ng, Grace Campbell, Kendall Ho</span>
+      <span class="pv">Canadian Conference on Artificial Intelligence (CanAI), pp. 492&ndash;497, 2019</span>
+      <span class="pl"><a href="https://link.springer.com/chapter/10.1007/978-3-030-18305-9_50">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Exploring Discourse Coherence Features for Dementia Detection</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Vaden Masrani, Giuseppe Carenini, Raymond Ng, Gabriel Murray, Thalia Field</span>
+      <span class="pv">5th Pacific Northwest Regional NLP Workshop (NW-NLP), 2018</span>
+    </li>
+    </ul>
+  </div>
+
+  <div class="grp">
+    <h3>Public health discourse at scale <span class="count">9 papers</span></h3>
+    <p class="lead">Population-scale language analysis for public health: attitudes toward vaccination and COVID-19, stigma in health discussions, clinician and patient messaging, and public perception of AI.</p>
+    <ul class="pubs">
+    <li>
+      <span class="pt">Natural Language Processing to Evaluate Texting Conversations Between Patients and Healthcare Providers During COVID-19 Home-Based Care in Rwanda at Scale</span>
+      <span class="pa">Richard T Lester, Matthew Manson, Muhammed Semakula, <strong>Hyeju Jang</strong>, Hassan Mugabo, Ali Magzari, Junhong Ma Blackmer, Fanan Fattah, Simon Pierre Niyonsenga, Edson Rwagasore, Charles Ruranga, Eric Remera, Jean Claude S. Ngabonziza, Giuseppe Carenini, Sabin Nsanzimana</span>
+      <span class="pv">PLOS Digital Health, 2025</span>
+    </li>
+    <li>
+      <span class="pt">Public Attitudes Toward ChatGPT on Twitter: Sentiments, Topics, and Occupations</span>
+      <span class="pa">Ratanond Koonchanok, Yanling Pan, <strong>Hyeju Jang</strong></span>
+      <span class="pv">Social Network Analysis and Mining, 2024</span>
+    </li>
+    <li>
+      <span class="pt">Topic and Sentiment Analysis of Reddit&rsquo;s Vaping-Cessation Community</span>
+      <span class="pa">Joongeun Choi, <strong>Hyeju Jang</strong></span>
+      <span class="pv">IEEE International Conference on Bioinformatics and Biomedicine (BIBM), 2023</span>
+    </li>
+    <li>
+      <span class="pt">Tracking Public Attitudes toward COVID-19 Vaccination on Tweets in Canada: Using Aspect-based Sentiment Analysis</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Emily Rempel, Ian Roe, Giuseppe Carenini, Naveed Janjua</span>
+      <span class="pv">Journal of Medical Internet Research (JMIR), 2022</span>
+      <span class="pl"><a href="https://www.jmir.org/2022/3/e35016/">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Tracking COVID-19 Discourse on Twitter in North America: Infodemiology Study Using Topic Modeling and Aspect-based Sentiment Analysis</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Emily Rempel, David Roth, Giuseppe Carenini, Naveed Z. Janjua</span>
+      <span class="pv">Journal of Medical Internet Research (JMIR), 2021</span>
+      <span class="pl"><a href="https://www.jmir.org/2021/2/e25431/">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Exploratory Analysis of COVID-19 Related Tweets in North America to Inform Public Health Institutes</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Emily Rempel, Giuseppe Carenini, Naveed Janjua</span>
+      <span class="pv">EMNLP Workshop on NLP for COVID-19 (Part 2), 2020</span>
+      <span class="pl"><a href="https://www.aclweb.org/anthology/2020.nlpcovid19-2.18/">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Stigma Annotation Scheme and Stigmatized Language Detection in Health-Care Discussions on Social Media</span>
+      <span class="pa">Nadiya Straton, <strong>Hyeju Jang</strong>, Raymond Ng</span>
+      <span class="pv">Language Resources and Evaluation Conference (LREC), pp. 1178&ndash;1190, 2020</span>
+      <span class="pl"><a href="https://www.aclweb.org/anthology/2020.lrec-1.148/">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Predictive Modelling of Stigmatized Behaviour in Vaccination Discussions on Facebook</span>
+      <span class="pa">Nadiya Straton, Raymond Ng, <strong>Hyeju Jang</strong>, Ravi Vatrapu, Raghava Rao Mukkamala</span>
+      <span class="pv">IEEE International Conference on Bioinformatics and Biomedicine (BIBM), pp. 2561&ndash;2568, 2019</span>
+      <span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/8983175">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Computational Modeling of Stigmatized Behaviour in Pro-vaccination and Anti-vaccination Discussions on Social Media</span>
+      <span class="pa">Nadiya Straton, <strong>Hyeju Jang</strong>, Raymond Ng, Ravi Vatrapu, Raghava Rao Mukkamala</span>
+      <span class="pv">IEEE International Conference on Bioinformatics and Biomedicine (BIBM), pp. 2673&ndash;2681, 2019</span>
+      <span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/8983311">[PDF]</a></span>
+    </li>
+    </ul>
+  </div>
+
+  <div class="grp">
+    <h3>Earlier and other work <span class="count">20 papers</span></h3>
+    <p class="lead">Educational NLP from my CMU years, clinical text mining from my time at ETRI and KAIST, and collaborations across NLP.</p>
+    <ul class="pubs">
+    <li>
+      <span class="pt">Generating Descriptive Explanations of Machine Learning Models Using LLM</span>
+      <span class="pa">Andrew Pang, <strong>Hyeju Jang</strong>, Shiaofen Fang</span>
+      <span class="pv">From Theory to Practice: Workshop on Large Language and Foundation Models at IEEE Big Data, 2024</span>
+    </li>
+    <li>
+      <span class="pt">Unsupervised Hypernymy Directionality Prediction Using Context Terms</span>
+      <span class="pa">Thushara Naduvilakandy, <strong>Hyeju Jang</strong>, Mohammad A. Hasan</span>
+      <span class="pv">Natural Language Processing Journal, 2024</span>
+    </li>
+    <li>
+      <span class="pt">Improving Multi-hop Logical Reasoning in Knowledge Graphs with Context-Aware Query Representation Learning</span>
+      <span class="pa">Jeonghoon Kim, Heesoo Jung, <strong>Hyeju Jang</strong>, Hogun Park</span>
+      <span class="pv">Findings of the Association for Computational Linguistics (ACL), 2024</span>
+    </li>
+    <li>
+      <span class="pt">OCTVis: Ontology-based Comparison of Topic Models</span>
+      <span class="pa">Amon Ge, <strong>Hyeju Jang</strong>, Giuseppe Carenini, Kendall Ho, Young Ji Lee</span>
+      <span class="pv">IEEE Visualization Conference (VIS), pp. 66&ndash;70, 2019</span>
+      <span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/8933646">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Developing, Evaluating, and Refining an Automatic Generator of Diagnostic Multiple Choice Cloze Questions to Assess Children&rsquo;s Comprehension While Reading</span>
+      <span class="pa">Jack Mostow, Yi-Ting Huang, <strong>Hyeju Jang</strong>, Anders Weinstein, Joe Valeri, Donna Gates</span>
+      <span class="pv">Natural Language Engineering, pp. 1&ndash;50, 2016</span>
+      <span class="pl"><a href="https://link.springer.com/article/10.1007/s40593-013-0012-6">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Towards an Agile Approach to Adapting Dynamic Collaboration Support to Student Needs</span>
+      <span class="pa">David Adamson, Gregory Dyke, <strong>Hyeju Jang</strong>, Carolyn Penstein Ros&eacute;</span>
+      <span class="pv">International Journal of Artificial Intelligence in Education 24.1, pp. 92&ndash;124, 2014</span>
+      <span class="pl"><a href="https://link.springer.com/article/10.1007/s40593-013-0012-6">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Intensification of Group Knowledge Exchange with Academically Productive Talk Agents</span>
+      <span class="pa">David Adamson, Colin Ashe, <strong>Hyeju Jang</strong>, David Yaron, Carolyn Penstein Ros&eacute;</span>
+      <span class="pv">Conference on Computer Supported Collaborative Learning (CSCL), pp. 10&ndash;17, 2013</span>
+      <span class="pl"><a href="https://www.cs.cmu.edu/afs/cs.cmu.edu/Web/People/dadamson/pubs/2013_Adamson_APT_Intensification.pdf">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Extracting Events with Informal Temporal References in Personal Histories in Online Communities</span>
+      <span class="pa">Miaomiao Wen, Zeyu Zheng, <strong>Hyeju Jang</strong>, Guang Xiang, Carolyn Penstein Ros&eacute;</span>
+      <span class="pv">51st Annual Meeting of the Association for Computational Linguistics (ACL), pp. 836&ndash;842, 2013</span>
+      <span class="pl"><a href="https://www.aclweb.org/anthology/P13-2145.pdf">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Inferring Selectional Preferences from Part-of-Speech N-grams</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Jack Mostow</span>
+      <span class="pv">13th Conference of the European Chapter of the ACL (EACL), pp. 377&ndash;386, 2012</span>
+      <span class="pl"><a href="https://www.aclweb.org/anthology/E12-1038.pdf">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Generating Diagnostic Multiple Choice Comprehension Cloze Questions</span>
+      <span class="pa">Jack Mostow, <strong>Hyeju Jang</strong></span>
+      <span class="pv">Seventh Workshop on Building Educational Applications Using NLP at NAACL, pp. 136&ndash;146, 2012</span>
+      <span class="pl"><a href="https://www.aclweb.org/anthology/W12-2016.pdf">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Procedural Entity Extraction for Procedural Knowledge on Medline Abstracts</span>
+      <span class="pa">Sakwang Song, Hungsun Oh, Yoonjung Choi, <strong>Hyeju Jang</strong>, Sung-Hyon Myaeng, Sungpil Choi, Yunsoo Choi</span>
+      <span class="pv">Korean Information Science Society Conference, pp. 154&ndash;157 &middot; in Korean, 2011</span>
+      <span class="pl"><a href="https://www.koreascience.or.kr/article/CFKO201128451824424.page">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Personal Information Access Using Proactive Search and Mobile Hypertext</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Seongchan Kim, Wookhyun Shin, Sung-Hyon Myaeng</span>
+      <span class="pv">IEEE Intelligent Systems, vol. 25, no. 1, pp. 27&ndash;36, 2010</span>
+      <span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/5432258">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Personalized Healthcare through Intelligent Gadgets</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Sanghyun Kim, Changseok Bae</span>
+      <span class="pv">30th Annual International Conference IEEE Engineering in Medicine and Biology Society (IEEE-EMBC), pp. 3308&ndash;3311, 2008</span>
+      <span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/4649912">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Context Representation of Intelligent Gadgets for Event-driven Services</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Kuksang Jeong, Jongho Won, Changseok Bae</span>
+      <span class="pv">International Conference on Consumer Electronics (ICCE), pp. 1&ndash;2, 2008</span>
+      <span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/4587984">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">MEMORIA: Personal Memento Service Using Intelligent Gadgets</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Jongho Won, Changseok Bae</span>
+      <span class="pv">HCI International Conference (HCII), pp. 331&ndash;339, 2007</span>
+      <span class="pl"><a href="https://link.springer.com/chapter/10.1007/978-3-540-73110-8_35">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Integration of Low Level Linguistic Information for Clinical Document Semantic Tagging</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Yun Jin, Sung Hyon Myaeng</span>
+      <span class="pv">IEEE Conference on Information Reuse and Integration (IEEE-IRI), pp. 292&ndash;297, 2006</span>
+      <span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/4018505">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Text Mining for Medical Documents Using a Hidden Markov Model</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Sa Kwang Song, Sung Hyon Myaeng</span>
+      <span class="pv">Asia Information Retrieval Symposium (AIRS), LNCS 4182, pp. 553&ndash;559, 2006</span>
+      <span class="pl"><a href="https://link.springer.com/chapter/10.1007/11880592_45">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Semantic Tagging for Medical Knowledge Tracking</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Sa Kwang Song, Sung Hyon Myaeng</span>
+      <span class="pv">28th Annual International Conference IEEE Engineering in Medicine and Biology Society (IEEE-EMBC), pp. 6257&ndash;6260, 2006</span>
+      <span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/4463239">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">High Level Semantic Tagging in Clinical Documents Using a HMM Model</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Sa Kwang Song, Sung Hyon Myaeng</span>
+      <span class="pv">Korean Information Science Society Conference, pp. 19&ndash;21 &middot; in Korean, 2006</span>
+      <span class="pl"><a href="https://www.koreascience.or.kr/article/CFKO200625121628319.page">[PDF]</a></span>
+    </li>
+    <li>
+      <span class="pt">Design of Topic Detection and Tracking System for QA in Encyclopedia</span>
+      <span class="pa"><strong>Hyeju Jang</strong>, Yuchul Jung, Bo-Yeong Kang, Sa Kwang Song, Yun Jin, Hoon Song, Sung Hyon Myaeng</span>
+      <span class="pv">Korean Information Science Society Conference, pp. 22&ndash;24 &middot; in Korean, 2006</span>
+      <span class="pl"><a href="https://www.koreascience.or.kr/article/CFKO200625121628362.page">[PDF]</a></span>
+    </li>
+    </ul>
+  </div>
+
+</section>
+
+<footer>
+  Hyeju Jang &middot; Indiana University Indianapolis &middot; last updated August 2026
+</footer>
+
+</div>
+</body>
+</html>
