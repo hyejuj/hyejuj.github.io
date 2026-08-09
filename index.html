@@ -49,6 +49,13 @@ h1{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:2.5rem;line-
   h1{font-size:2rem}
 }
 
+.links{margin-top:.55rem;font-family:'IBM Plex Mono',monospace;font-size:.76rem}
+.links a{color:var(--accent-deep);text-decoration:none;border:1px solid var(--rule);border-radius:4px;padding:.18rem .55rem;margin-right:.4rem;white-space:nowrap}
+.links a:hover{border-color:var(--accent);background:var(--card)}
+.thrusts{list-style:none;margin:.4rem 0 1.1rem}
+.thrusts li{position:relative;padding-left:1.15rem;margin-bottom:.7rem;max-width:44rem;font-size:.96rem}
+.thrusts li::before{content:"";position:absolute;left:0;top:.5em;width:.5rem;height:.5rem;background:var(--tint);border:1px solid var(--accent);border-radius:2px}
+.thrusts strong{color:var(--accent-deep)}
 /* ---------- intro ---------- */
 .intro{padding:2rem 0 0}
 .intro p{margin-bottom:1rem;max-width:44rem}
@@ -117,6 +124,7 @@ footer{margin-top:4rem;padding:1.5rem 0 2.5rem;border-top:1px solid var(--rule);
         <span>hyejuj [at] iu [dot] edu</span>
         <span>IT 346, 535 W Michigan St, Indianapolis, IN</span>
       </p>
+      <p class="links"><a href="https://scholar.google.com/citations?user=U7x7R6YAAAAJ">Google Scholar</a> <a href="https://dblp.org/pid/55/3869.html">DBLP</a> <a href="https://aclanthology.org/people/hyeju-jang/">ACL Anthology</a></p>
     </div>
   </div>
 </header>
@@ -129,27 +137,26 @@ footer{margin-top:4rem;padding:1.5rem 0 2.5rem;border-top:1px solid var(--rule);
     framing, discourse structure and coherence, stance and social positioning. And I put them
     to work where language carries real consequences, above all in health and education.
   </p>
-  <p>
-    This program runs along several long-standing lines: modeling figurative and discourse-level
-    meaning itself; reading language, speech, and gaze as
-    <span class="hl">signals of cognition and mental state</span>, from Alzheimer&rsquo;s
-    detection with clinical collaborators to caregiver mental health; and analyzing health
-    discourse at population scale, from vaccine attitudes to clinician-patient messaging across
-    a national care program.
-  </p>
-  <p>
-    A current focus, with my students, turns these models toward language models themselves:
-    what are LLMs actually responding to when they judge human language? Our recent answer: hold
-    the meaning fixed, change the surface (a metaphor, a speaker&rsquo;s identity),
-    <span class="hl">and the judgment moves</span>. As these models take on more consequential
-    judgments of human text, what sways them becomes a question of trust.
-  </p>
+  <p>My research runs along four connected lines:</p>
+  <ul class="thrusts">
+    <li><strong>Model judgment and trust</strong> (current focus): what are LLMs actually responding
+      to when they judge human language? With my students, I build controlled probes: hold the
+      meaning fixed, change the surface (a metaphor, a speaker&rsquo;s identity),
+      <span class="hl">and the judgment moves</span>.</li>
+    <li><strong>Metaphor, framing, and discourse structure</strong>: computational models of how
+      figurative language reframes what it describes and how discourse organization guides a
+      reader; the machinery behind the probes above.</li>
+    <li><strong>Language as a signal of cognition and health</strong>: with clinical collaborators,
+      reading speech, gaze, and discourse patterns as markers of cognitive decline and mental
+      state.</li>
+    <li><strong>Health discourse at scale</strong>: population-scale language analysis, from
+      vaccine attitudes to clinician-patient messaging across a national care program.</li>
+  </ul>
   <p>
     I received my Ph.D. from the <a href="http://www.lti.cs.cmu.edu">Language Technologies Institute</a>
     at Carnegie Mellon University, and was a
     <a href="https://www.cihr-irsc.gc.ca/e/51211.html">CIHR Health System Impact Postdoctoral Fellow</a>
-    at the University of British Columbia and the BC Centre for Disease Control. At IU
-    Indianapolis, I teach natural language processing and machine learning.
+    at the University of British Columbia and the BC Centre for Disease Control.
   </p>
 
   <figure class="probe">
@@ -166,6 +173,14 @@ footer{margin-top:4rem;padding:1.5rem 0 2.5rem;border-top:1px solid var(--rule);
   </figure>
 </div>
 
+
+<section id="teaching">
+  <h2>Teaching</h2>
+  <ul class="pubs">
+    <li><span class="pt">Natural Language Processing</span><span class="pv">CSCI-B 651, graduate &middot; Indiana University Indianapolis</span></li>
+    <li><span class="pt">Machine Learning</span><span class="pv">CSCI-B 455/555 &middot; Indiana University Indianapolis</span></li>
+  </ul>
+</section>
 
 <section id="publications">
   <h2>Publications</h2>
