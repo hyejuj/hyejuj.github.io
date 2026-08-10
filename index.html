@@ -108,26 +108,27 @@ h1{
 }
 
 .intro .tagline{
-    width:min(100%,72ch);
+  position:relative;
+  width:min(100%,72ch);
+  margin:0 auto 1.6rem;
+  padding-top:1.2rem;
 
-    margin:0 auto 1.6rem;
-
-    padding-top:1.2rem;
-
-    linear-gradient(
-    rgba(25, 123, 234, 0.45),
-    rgba(25, 123, 234, 0.45)
-  )
-  top left / 200% 3px
-  no-repeat;
-
-    font-size:1rem;
-    line-height:1.68;
-    font-weight:600;
+  font-size:1rem;
+  line-height:1.68;
+  font-weight:600;
 }
 
 .intro .tagline::before{
-  content:none;
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+
+  width:125%;   /* 선 길이 */
+  height:2px;   /* 선 두께 */
+
+  background:var(--accent);
+  opacity:.45;  /* 선 옅기 */
 }
 
 .intro .intro-body,
