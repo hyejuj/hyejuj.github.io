@@ -1,183 +1,417 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hyeju Jang — Indiana University Indianapolis</title>
-<meta name="description" content="Hyeju Jang is an assistant professor of Computer Science at Indiana University Indianapolis. She builds computational models of meaning beyond literal content, applied in health, education, and the evaluation of language models.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Hyeju Jang | Language in Context, Health, and Trustworthy AI</title>
+<meta content="Hyeju Jang is an NLP researcher at Indiana University Indianapolis studying meaning in context, language and multimodal signals in health, and trustworthy language-model judgment." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
   --paper:#FFFFFF;
-  --ink:#1B1E24;
-  --muted:#5C6470;
-  --accent:#197BEA;
-  --accent-deep:#0F5BBF;
-  --tint:#E4F0FE;
-  --rule:#E2E8F0;
-  --card:#F7FAFF;
+  --ink:#121722;
+  --text:#252C37;
+  --muted:#586474;
+  --accent:#1768D4;
+  --accent-deep:#0E4F9F;
+  --tint:#EAF3FF;
+  --rule:#D9E3EE;
+  --soft:#F7FAFE;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
   font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   background:var(--paper);
-  color:var(--ink);
-  font-size:16px;
-  line-height:1.6;
+  color:var(--text);
+  font-size:17px;
+  line-height:1.7;
+  text-rendering:optimizeLegibility;
 }
-.wrap{max-width:47rem;margin:0 auto;padding:0 1.25rem}
-a{color:var(--accent-deep);text-decoration:underline;text-decoration-color:rgba(23,94,84,.35);text-underline-offset:2px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 2rem}
+a{
+  color:var(--accent-deep);
+  text-decoration:underline;
+  text-decoration-color:rgba(23,104,212,.32);
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+}
 a:hover{text-decoration-color:var(--accent)}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
-.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+::selection{background:var(--tint)}
 
 /* ---------- header ---------- */
-header{padding:2rem 0 0}
-.masthead{display:flex;gap:2.25rem;align-items:flex-start;padding:1rem 0 0}
-.masthead img{width:170px;height:auto;border-radius:4px;flex-shrink:0;box-shadow:10px 10px 0 var(--tint)}
-h1{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:2.5rem;line-height:1.1;letter-spacing:-.01em}
-.role{color:var(--muted);margin-top:.5rem;font-size:.95rem;line-height:1.5}
-.role a{color:inherit}
-.contact{margin-top:.9rem;font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--muted)}
-.contact span{margin-right:1.1rem;white-space:nowrap}
-@media (max-width:600px){
-  .masthead{flex-direction:column;gap:1.25rem}
-  h1{font-size:2rem}
+header{padding:4.25rem 0 0}
+.masthead{
+  display:grid;
+  grid-template-columns:260px minmax(0,1fr);
+  gap:4.25rem;
+  align-items:center;
+}
+.masthead img{
+  width:260px;
+  height:auto;
+  display:block;
+  border-radius:8px;
+  box-shadow:16px 16px 0 var(--tint);
+}
+h1{
+  font-family:'Newsreader',Georgia,serif;
+  color:var(--ink);
+  font-weight:600;
+  font-size:3.65rem;
+  line-height:1;
+  letter-spacing:-.035em;
+}
+.role{
+  color:#364150;
+  margin-top:1rem;
+  font-size:1rem;
+  line-height:1.62;
+}
+.role a{color:inherit;text-decoration-color:rgba(54,65,80,.25)}
+.contact{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.35rem 1.25rem;
+  margin-top:1.15rem;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:.78rem;
+  color:var(--muted);
+}
+.contact span{white-space:nowrap}
+.links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1.15rem;
+  margin-top:1rem;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:.75rem;
+  letter-spacing:.02em;
+}
+.links a{
+  color:var(--accent-deep);
+  text-decoration:none;
+  border-bottom:1px solid rgba(23,104,212,.35);
+  padding-bottom:.08rem;
+}
+.links a:hover{border-color:var(--accent)}
+
+/* ---------- introduction ---------- */
+.intro{padding:4.25rem 0 0}
+.intro .tagline{
+  max-width:54rem;
+  margin-bottom:1.35rem;
+  font-family:'Newsreader',Georgia,serif;
+  color:var(--ink);
+  font-size:1.7rem;
+  line-height:1.38;
+  letter-spacing:-.012em;
+}
+.intro .intro-copy{
+  max-width:73ch;
+  margin-bottom:1.05rem;
+  color:var(--text);
+}
+.hl{
+  background:linear-gradient(180deg,transparent 61%,var(--tint) 61%);
+  padding:0 .1em;
+  border-radius:2px;
+  box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+}
+.directions-label{
+  margin-top:3.2rem;
+  margin-bottom:1.15rem;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+  color:var(--accent-deep);
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.thrusts{
+  counter-reset:direction;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:2rem;
+  list-style:none;
+  margin:0 0 2.75rem;
+}
+.thrusts li{
+  counter-increment:direction;
+  position:relative;
+  min-width:0;
+  padding:1.2rem 0 0;
+  border-top:3px solid var(--accent);
+  font-size:.94rem;
+  line-height:1.58;
+  color:#3F4957;
+}
+.thrusts li::before{
+  content:'0' counter(direction);
+  display:block;
+  margin-bottom:.65rem;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+  color:var(--accent);
+  font-size:.7rem;
+  letter-spacing:.08em;
+}
+.thrusts strong{
+  display:block;
+  margin-bottom:.38rem;
+  font-family:'Newsreader',Georgia,serif;
+  color:var(--ink);
+  font-size:1.22rem;
+  font-weight:600;
+  line-height:1.22;
+}
+.bio-note{
+  max-width:73ch;
+  padding-top:1.25rem;
+  border-top:1px solid var(--rule);
+  color:#4C5867;
+  font-size:.91rem;
 }
 
-.links{margin-top:.55rem;font-family:'IBM Plex Mono',monospace;font-size:.76rem}
-.links a{color:var(--accent-deep);text-decoration:none;border:1px solid var(--rule);border-radius:4px;padding:.18rem .55rem;margin-right:.4rem;white-space:nowrap}
-.links a:hover{border-color:var(--accent);background:var(--card)}
-.thrusts{list-style:none;margin:.4rem 0 1.1rem}
-.thrusts li{position:relative;padding-left:1.15rem;margin-bottom:.7rem;max-width:44rem;font-size:.96rem}
-.thrusts li::before{content:"";position:absolute;left:0;top:.5em;width:.5rem;height:.5rem;background:var(--tint);border:1px solid var(--accent);border-radius:2px}
-.thrusts strong{color:var(--accent-deep)}
-/* ---------- intro ---------- */
-.intro{padding:2rem 0 0}
-.intro p{margin-bottom:1rem;max-width:44rem}
-.intro p:last-child{margin-bottom:0}
-
-/* ---------- probe figure (signature) ---------- */
-.probe{
-  margin:2.25rem 0 0;
-  background:var(--card);
-  border:1px solid var(--rule);
-  border-left:3px solid var(--accent);
-  border-radius:6px;
-  padding:1.4rem 1.5rem 1.2rem;
-}
-.probe .line{font-family:'Newsreader',Georgia,serif;font-size:1.1rem;line-height:1.55}
-.probe .arrow{color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:.85rem;margin:.35rem 0}
-.probe mark{background:var(--tint);color:var(--accent-deep);padding:.05em .25em;border-radius:3px;font-style:normal}
-.probe figcaption{margin-top:.9rem;font-size:.85rem;color:var(--muted);border-top:1px dashed var(--rule);padding-top:.75rem}
-.probe figcaption a{color:var(--accent-deep)}
-
-/* ---------- sections ---------- */
-section{padding-top:3.25rem}
+/* ---------- section headings ---------- */
+section{padding-top:5rem}
 h2{
-  font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:1.55rem;
-  padding-bottom:.6rem;border-bottom:1px solid var(--rule);margin-bottom:1.4rem
+  display:flex;
+  align-items:center;
+  gap:1.5rem;
+  margin-bottom:2.2rem;
+  font-family:'Newsreader',Georgia,serif;
+  color:var(--ink);
+  font-size:2.15rem;
+  font-weight:600;
+  line-height:1.15;
+  letter-spacing:-.018em;
 }
-h3{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:1.18rem;margin-bottom:.35rem;color:var(--accent-deep)}
-.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.3rem}
+h2::after{content:'';height:1px;flex:1;background:var(--rule)}
+.note{
+  max-width:58rem;
+  margin:-1.25rem 0 2.5rem;
+  color:var(--muted);
+  font-size:.8rem;
+}
 
-/* ---------- full publications ---------- */
-::selection{background:var(--tint)}
-.hl{background:linear-gradient(180deg,transparent 58%,var(--tint) 58%);padding:0 .12em;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.probe .chip{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:.6rem}
-.count{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);font-weight:400;margin-left:.6rem;letter-spacing:.05em;white-space:nowrap}
-.grp{margin-bottom:2.6rem}
-.grp .lead{font-size:.92rem;color:var(--muted);max-width:44rem;margin:.2rem 0 1.1rem}
+/* ---------- compact teaching ---------- */
+#teaching{
+  display:grid;
+  grid-template-columns:8.5rem minmax(0,1fr);
+  gap:2.25rem;
+  align-items:start;
+  margin-top:4.5rem;
+  padding:1.3rem 0;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+#teaching h2{
+  display:block;
+  margin:0;
+  padding-top:.1rem;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+  color:var(--accent-deep);
+  font-size:.73rem;
+  line-height:1.5;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+#teaching h2::after{display:none}
+#teaching .pubs{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1.25rem 2.5rem;
+}
+#teaching .pubs li{
+  margin:0;
+  padding:0;
+  border:0;
+}
+#teaching .pt{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink);
+  font-size:.98rem;
+  font-weight:600;
+  line-height:1.35;
+}
+#teaching .pv{margin-top:.15rem;font-size:.77rem}
+
+/* ---------- publication groups ---------- */
+#publications{}
+.grp{
+  display:grid;
+  grid-template-columns:minmax(13.5rem,16.5rem) minmax(0,1fr);
+  gap:3.75rem;
+  padding:3.4rem 0 3.75rem;
+  border-top:1px solid var(--rule);
+}
+.grp:first-of-type{border-top:0;padding-top:.35rem}
+.grp-head{
+  position:sticky;
+  top:1.5rem;
+  align-self:start;
+}
+.grp-head::before{
+  content:attr(data-label);
+  display:block;
+  margin-bottom:.8rem;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+  color:var(--accent);
+  font-size:.66rem;
+  font-weight:500;
+  letter-spacing:.1em;
+}
+h3{
+  margin:0 0 .65rem;
+  font-family:'Newsreader',Georgia,serif;
+  color:var(--ink);
+  font-size:1.62rem;
+  font-weight:600;
+  line-height:1.16;
+  letter-spacing:-.015em;
+}
+.grp .lead{
+  max-width:17rem;
+  color:#536070;
+  font-size:.9rem;
+  line-height:1.58;
+}
+.grp-body{min-width:0}
+.subgrp + .subgrp{margin-top:3rem}
+h4{
+  margin:0 0 1.2rem;
+  padding-bottom:.65rem;
+  border-bottom:1px solid var(--rule);
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+  color:var(--accent-deep);
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
 .pubs{list-style:none}
-.pubs li{margin-bottom:1.05rem;max-width:46rem;border-left:2px solid transparent;padding-left:.85rem;margin-left:-.87rem;transition:border-color .15s ease,background-color .15s ease}
-.pubs li:hover{border-left-color:var(--accent);background-color:var(--card)}
-@media (prefers-reduced-motion:reduce){.pubs li{transition:none}}
-.pt{font-family:'Newsreader',Georgia,serif;font-size:1.05rem;line-height:1.4;display:block}
-.pa{display:block;font-size:.85rem;color:var(--ink);opacity:.85;margin-top:.1rem}
-.pv{display:block;font-size:.8rem;color:var(--muted);margin-top:.05rem}
-.ann{display:block;font-size:.84rem;color:var(--muted);font-style:italic;margin-top:.15rem}
-.pl{font-family:'IBM Plex Mono',monospace;font-size:.75rem}
-.note{font-size:.8rem;color:var(--muted);margin-bottom:1rem}
+.pubs li{
+  max-width:none;
+  margin:0 0 1.25rem;
+  padding:0 0 1.25rem;
+  border-bottom:1px solid rgba(217,227,238,.78);
+}
+.pubs li:last-child{margin-bottom:0;border-bottom:0}
+.pt{
+  display:block;
+  font-family:'Newsreader',Georgia,serif;
+  color:var(--ink);
+  font-size:1.1rem;
+  font-weight:500;
+  line-height:1.37;
+}
+.pt a{color:inherit;text-decoration-color:rgba(23,104,212,.28)}
+.pa{
+  display:block;
+  margin-top:.25rem;
+  color:#3E4856;
+  font-size:.84rem;
+  line-height:1.48;
+}
+.pv{
+  display:block;
+  margin-top:.08rem;
+  color:var(--muted);
+  font-size:.79rem;
+  line-height:1.45;
+}
+.ann{
+  display:block;
+  margin-top:.28rem;
+  color:#4D6077;
+  font-size:.82rem;
+  font-style:italic;
+  line-height:1.45;
+}
+.pl{
+  display:block;
+  margin-top:.15rem;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:.7rem;
+}
 
-footer{margin-top:4rem;padding:1.5rem 0 2.5rem;border-top:1px solid var(--rule);font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--muted)}
+footer{
+  margin-top:2rem;
+  padding:1.8rem 0 3rem;
+  border-top:1px solid var(--rule);
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+  color:var(--muted);
+  font-size:.72rem;
+}
+
+@media (max-width:900px){
+  .wrap{max-width:54rem}
+  .masthead{grid-template-columns:220px minmax(0,1fr);gap:3rem}
+  .masthead img{width:220px;box-shadow:12px 12px 0 var(--tint)}
+  h1{font-size:3.15rem}
+  .thrusts{gap:1.35rem}
+  .grp{grid-template-columns:13rem minmax(0,1fr);gap:2.5rem}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .wrap{padding:0 1.25rem}
+  header{padding-top:2.5rem}
+  .masthead{grid-template-columns:1fr;gap:1.75rem;align-items:start}
+  .masthead img{width:min(240px,75vw)}
+  h1{font-size:2.75rem}
+  .intro{padding-top:3.25rem}
+  .intro .tagline{font-size:1.45rem}
+  .thrusts{grid-template-columns:1fr;gap:1.5rem}
+  .thrusts li{padding-top:1rem}
+  #teaching{grid-template-columns:1fr;gap:.9rem;margin-top:3.5rem}
+  #teaching .pubs{grid-template-columns:1fr;gap:.8rem}
+  section{padding-top:4rem}
+  h2{font-size:1.85rem}
+  .grp{display:block;padding:2.8rem 0 3rem}
+  .grp-head{position:static;margin-bottom:1.65rem}
+  .grp .lead{max-width:38rem}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-
 <header>
-  <div class="masthead">
-    <img src="./images/hyeju_2020.png" alt="Portrait of Hyeju Jang">
-    <div>
-      <h1>Hyeju Jang</h1>
-      <p class="role">
-        Assistant Professor, <a href="https://luddy.indianapolis.iu.edu/departments/cs/index.html">Department of Computer Science</a><br>
-        Luddy School of Informatics, Computing, and Engineering<br>
-        <a href="https://www.iupui.edu/">Indiana University Indianapolis</a><br>
+<div class="masthead">
+<img alt="Portrait of Hyeju Jang" fetchpriority="high" height="274" loading="eager" src="./images/hyeju_2020.png" width="297"/>
+<div class="identity">
+<h1>Hyeju Jang</h1>
+<p class="role">
+        Assistant Professor, <a href="https://luddy.indianapolis.iu.edu/departments/cs/index.html">Department of Computer Science</a><br/>
+        Luddy School of Informatics, Computing, and Engineering<br/>
+<a href="https://www.iupui.edu/">Indiana University Indianapolis</a><br/>
         Affiliate Professor, <a href="https://www.cs.ubc.ca/">Computer Science, University of British Columbia</a>
-      </p>
-      <p class="contact">
-        <span>hyejuj [at] iu [dot] edu</span>
-        <span>IT 346, 535 W Michigan St, Indianapolis, IN</span>
-      </p>
-      <p class="links"><a href="https://scholar.google.com/citations?user=U7x7R6YAAAAJ">Google Scholar</a> <a href="https://dblp.org/pid/55/3869.html">DBLP</a> <a href="https://aclanthology.org/people/hyeju-jang/">ACL Anthology</a></p>
-    </div>
-  </div>
-</header>
-
-<div class="intro">
-  <p>
-    I build computational models of language in context—how it shapes meaning, 
-    what it reveals about people and populations, and how AI systems interpret it. 
-    Language does more than state facts: it frames, hedges, organizes, and signals 
-    who we are and how we think. My work focuses on these <span class="hl">layers of meaning beyond 
-    literal content</span>, with particular attention to metaphor and figurative framing, 
-    discourse structure and coherence, and stance and social positioning.
-
-   To study these layers, I turn linguistic theories into computational measurements 
-    and combine them with machine learning and multimodal signals. 
-    I evaluate these models in controlled studies and in settings where language carries 
-    real consequences, especially in health. My goal is to build language technologies 
-    that respond to what language does, not only to what it says.
-  </p>
-  <p class="directions-label">My research spans three connected directions:</p>
-  <ul class="thrusts">
-  <li><strong>Meaning in context</strong>How metaphor, framing, discourse structure, coherence, and
-    social positioning shape interpretation.</li>
-  <li><strong>Language as evidence</strong>What language, speech, gaze, and discourse reveal about
-    cognition, mental state, patient needs, and population-level health attitudes.</li>
-  <li><strong>Machine judgment and trust</strong>A current emphasis on what language models respond
-    to when they interpret and evaluate human language, and when those judgments can be trusted.</li>
-  </ul>
-  <p>
-    I received my Ph.D. from the <a href="http://www.lti.cs.cmu.edu">Language Technologies Institute</a>
-    at Carnegie Mellon University, and was a
-    <a href="https://www.cihr-irsc.gc.ca/e/51211.html">CIHR Health System Impact Postdoctoral Fellow</a>
-    at the University of British Columbia and the BC Centre for Disease Control.
-  </p>
-
+</p>
+<p class="contact">
+<span>hyejuj [at] iu [dot] edu</span>
+<span>IT 346, 535 W Michigan St, Indianapolis, IN</span>
+</p>
+<p class="links"><a href="https://scholar.google.com/citations?user=U7x7R6YAAAAJ">Google Scholar</a> <a href="https://dblp.org/pid/55/3869.html">DBLP</a> <a href="https://aclanthology.org/people/hyeju-jang/">ACL Anthology</a></p>
 </div>
-
-
-<section id="teaching">
-  <h2>Teaching</h2>
-  <ul class="pubs">
-    <li><span class="pt">Natural Language Processing</span><span class="pv">CSCI-B 651, graduate &middot; Indiana University Indianapolis</span></li>
-    <li><span class="pt">Machine Learning</span><span class="pv">CSCI-B 455/555 &middot; Indiana University Indianapolis</span></li>
-  </ul>
+</div>
+</header>
+<div class="intro"><p class="tagline">I build computational models of language in context—how it shapes meaning, what it reveals about people and populations, and how AI systems interpret it.</p><p class="intro-copy">Language does more than state facts: it frames, hedges, organizes, and signals who we are and how we think. My work focuses on these <span class="hl">layers of meaning beyond literal content</span>, with particular attention to metaphor and figurative framing, discourse structure and coherence, and stance and social positioning.</p><p class="intro-copy">To study these layers, I turn linguistic theories into computational measurements and combine them with machine learning and multimodal signals. I evaluate these models in controlled studies and in settings where language carries real consequences, especially in health. My goal is to build language technologies that respond to what language does, not only to what it says.</p><p class="directions-label">My research spans three connected directions</p><ul class="thrusts"><li><strong>Machine judgment and trust</strong>A current emphasis on what language models respond to when they interpret and evaluate human language, and when those judgments can be trusted.</li><li><strong>Meaning in context</strong>How metaphor, framing, discourse structure, coherence, and social positioning shape interpretation.</li><li><strong>Language as evidence</strong>What language, speech, gaze, and discourse reveal about cognition, mental state, patient needs, and population-level health attitudes.</li></ul><p class="bio-note">I received my Ph.D. from the <a href="http://www.lti.cs.cmu.edu">Language Technologies Institute</a> at Carnegie Mellon University, and was a <a href="https://www.cihr-irsc.gc.ca/e/51211.html">CIHR Health System Impact Postdoctoral Fellow</a> at the University of British Columbia and the BC Centre for Disease Control.</p></div>
+<section aria-label="Teaching" id="teaching">
+<h2>Teaching</h2>
+<ul class="pubs">
+<li><span class="pt">Natural Language Processing</span><span class="pv">CSCI-B 651, graduate · Indiana University Indianapolis</span></li>
+<li><span class="pt">Machine Learning</span><span class="pv">CSCI-B 455/555 · Indiana University Indianapolis</span></li>
+</ul>
 </section>
-
 <section id="publications">
 <h2>Publications</h2>
 <p class="note">Grouped by the research directions above; within each group, newest first. * equal contribution, alphabetically ordered.</p>
-<div class="grp">
-<h3>Machine judgment and trust</h3>
-<p class="lead">How language models interpret and evaluate human text, which cues their judgments depend on, and when those judgments can be trusted.</p>
-<ul class="pubs">
+<div class="grp"><div class="grp-head" data-label="CURRENT FOCUS"><h3>Machine judgment and trust</h3><p class="lead">How language models interpret and evaluate human text, which cues their judgments depend on, and when those judgments can be trusted.</p></div><div class="grp-body"><ul class="pubs">
 <li>
 <span class="pt">A Mirage of Coherence: How Metaphor Impacts Language Models’ Discourse Coherence Assessment</span>
 <span class="pa">Wanting Ning, Brian Choi, Eun Jin Paek, <strong>Hyeju Jang</strong></span>
@@ -202,14 +436,8 @@ footer{margin-top:4rem;padding:1.5rem 0 2.5rem;border-top:1px solid var(--rule);
 <span class="pv">International Workshop on Semantic Evaluation (SemEval) at NAACL, 2024</span>
 <span class="ann">Ranked 1st, model-agnostic track.</span>
 </li>
-
-
-</ul>
-</div>
-<div class="grp">
-<h3>Meaning in context</h3>
-<p class="lead">A longstanding research program on how metaphor, figurative framing, and discourse organization shape interpretation—work that also provides conceptual foundations for my current research on machine judgment.</p>
-<ul class="pubs">
+</ul></div></div>
+<div class="grp"><div class="grp-head" data-label="LONGSTANDING LINE"><h3>Meaning in context</h3><p class="lead">A longstanding research program on how metaphor, figurative framing, and discourse organization shape interpretation—work that also provides conceptual foundations for my current research on machine judgment.</p></div><div class="grp-body"><ul class="pubs">
 <li>
 <span class="pt">Infrequent Discourse Relation Identification Using Data Programming</span>
 <span class="pa">Xing Zeng, Giuseppe Carenini, Raymond Ng, <strong>Hyeju Jang</strong></span>
@@ -257,9 +485,8 @@ footer{margin-top:4rem;padding:1.5rem 0 2.5rem;border-top:1px solid var(--rule);
 <span class="pv">Second Workshop on Metaphor in NLP at ACL, pp. 1–10, 2014</span>
 <span class="pl"><a href="https://www.aclweb.org/anthology/W14-2301.pdf">[PDF]</a></span>
 </li>
-</ul>
-</div>
-<div class="grp"><h3>Language as evidence in health and society</h3><p class="lead">What language and multimodal behavior reveal about cognition, mental state, patient needs, and health discourse from individuals to populations.</p><div class="subgrp"><h4>Cognition and clinical communication</h4><ul class="pubs">
+</ul></div></div>
+<div class="grp"><div class="grp-head" data-label="HEALTH &amp; SOCIETY"><h3>Language as evidence in health and society</h3><p class="lead">What language and multimodal behavior reveal about cognition, mental state, patient needs, and health discourse from individuals to populations.</p></div><div class="grp-body"><div class="subgrp"><h4>Cognition and clinical communication</h4><ul class="pubs">
 <li>
 <span class="pt">Estimating the Risk of Depression and Care Burden among Dementia Caregivers: A Feasibility Study</span>
 <span class="pa">Omid Ghadami, Kruthika Gaddam, Mahesh Moodukonaje, <strong>Hyeju Jang</strong>*, Hee-Tae Jung*</span>
@@ -384,12 +611,8 @@ footer{margin-top:4rem;padding:1.5rem 0 2.5rem;border-top:1px solid var(--rule);
 <span class="pv">IEEE International Conference on Bioinformatics and Biomedicine (BIBM), pp. 2673–2681, 2019</span>
 <span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/8983311">[link]</a></span>
 </li>
-</ul></div></div>
-
-<div class="grp">
-<h3>Additional publications in NLP and interdisciplinary applications</h3>
-<p class="lead">Earlier work in educational NLP and clinical text mining, together with collaborations across NLP, machine learning, and visual analytics.</p>
-<ul class="pubs">
+</ul></div></div></div>
+<div class="grp"><div class="grp-head" data-label="ADDITIONAL PUBLICATIONS"><h3>Additional publications in NLP and interdisciplinary applications</h3><p class="lead">Earlier work in educational NLP and clinical text mining, together with collaborations across NLP, machine learning, and visual analytics.</p></div><div class="grp-body"><ul class="pubs">
 <li>
 <span class="pt">Generating Descriptive Explanations of Machine Learning Models Using LLM</span>
 <span class="pa">Andrew Pang, <strong>Hyeju Jang</strong>, Shiaofen Fang</span>
@@ -517,14 +740,11 @@ footer{margin-top:4rem;padding:1.5rem 0 2.5rem;border-top:1px solid var(--rule);
 <span class="pv">Korean Information Science Society Conference, pp. 22–24 · in Korean, 2006</span>
 <span class="pl"><a href="https://www.koreascience.or.kr/article/CFKO200625121628362.page">[link]</a></span>
 </li>
-</ul>
-</div>
+</ul></div></div>
 </section>
-
 <footer>
-  Hyeju Jang &middot; Indiana University Indianapolis &middot; last updated August 2026
+  Hyeju Jang · Indiana University Indianapolis · last updated August 2026
 </footer>
-
 </div>
 </body>
 </html>
