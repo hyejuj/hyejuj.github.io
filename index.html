@@ -120,11 +120,18 @@ h1{
   color:var(--text);
 }
 .intro .tagline{
-    width:min(100%,72ch);
-    margin:0 auto 1.5rem;
-    padding-top:1rem;
-    border-top:3px solid var(--accent);
-    font-weight:600;
+    position:relative;
+    border-top:none;
+}
+
+.intro .tagline::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:14rem;          /* 또는 20~30% */
+    height:4px;
+    background:var(--accent);
 }
 .hl{
   background:linear-gradient(180deg,transparent 61%,var(--tint) 61%);
