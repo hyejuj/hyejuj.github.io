@@ -102,11 +102,15 @@ h1{
 .links a:hover{border-color:var(--accent)}
 
 /* ---------- introduction ---------- */
-.intro{padding:3.7rem 0 0}
+.intro{
+    padding-top:3.7rem;
+}
+
 .intro .tagline,
-.intro .intro-copy{
-  width:min(100%,78ch);
-  margin-inline:auto;
+.intro .intro-body,
+.intro .bio{
+    width:min(100%,72ch);
+    margin-inline:auto;
 }
 .intro-body{
     width:min(100%,72ch);
@@ -121,23 +125,27 @@ h1{
   line-height:1.68;
 }
 .intro .tagline{
-  margin:0 auto 1.4rem;
-  padding-top:1rem;
-  padding-left:0;          /* 중요 */
-  border-top:4px solid var(--accent);
-  font-size:1rem;
-  line-height:1.68;
-  font-weight:600;
+    position:relative;
+
+    margin-bottom:1.6rem;
+    padding-top:1rem;
+
+    font-size:1rem;
+    line-height:1.68;
+    font-weight:600;
 }
 
 
 .intro .tagline::before{
     content:"";
     position:absolute;
-    top:0;
+
     left:0;
-    width:14rem;          /* 또는 20~30% */
+    top:0;
+
+    width:11rem;
     height:4px;
+
     background:var(--accent);
 }
 .hl{
