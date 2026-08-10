@@ -105,8 +105,8 @@ h1{
 .intro{padding:3.7rem 0 0}
 .intro .tagline,
 .intro .intro-copy{
-  font-size:1rem;
-  line-height:1.68;
+  width:min(100%,78ch);
+  margin-inline:auto;
 }
 .intro-body{
     width:min(100%,72ch);
@@ -115,14 +115,21 @@ h1{
 .intro-body .intro-copy + .intro-copy{
   margin-top:1.15rem;
 }
-.intro-body .intro-copy{
-  margin:0;
-  color:var(--text);
+.intro .intro-copy{
+  margin:0 auto 1.15rem;
+  font-size:1rem;
+  line-height:1.68;
 }
 .intro .tagline{
-    position:relative;
-    border-top:none;
+  margin:0 auto 1.4rem;
+  padding-top:1rem;
+  padding-left:0;          /* 중요 */
+  border-top:4px solid var(--accent);
+  font-size:1rem;
+  line-height:1.68;
+  font-weight:600;
 }
+
 
 .intro .tagline::before{
     content:"";
