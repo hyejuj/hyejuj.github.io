@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Hyeju Jang | Language in Context, Health, and Trustworthy AI</title>
-<meta content="Hyeju Jang is an NLP researcher at Indiana University Indianapolis studying meaning in context, language and multimodal signals in health, and trustworthy language-model judgment." name="description"/>
+<meta content="Hyeju Jang is an NLP researcher at Indiana University Indianapolis studying meaning in context, language and multimodal signals in health and learning, and trustworthy language-model judgment." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
@@ -105,12 +105,21 @@ h1{
 .intro{padding:3.7rem 0 0}
 .intro .tagline,
 .intro .intro-copy{
-  max-width:73ch;
   font-size:1rem;
   line-height:1.68;
 }
+.intro-body{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:3rem;
+  margin-top:1.35rem;
+}
+.intro-body .intro-copy{
+  margin:0;
+  color:var(--text);
+}
 .intro .tagline{
-  margin-bottom:1.15rem;
+  margin-bottom:0;
   padding:.3rem 0 .3rem 1.15rem;
   border-left:4px solid var(--accent);
   color:var(--ink);
@@ -118,7 +127,6 @@ h1{
   font-weight:600;
   letter-spacing:0;
 }
-.intro .intro-copy{margin-bottom:1.05rem;color:var(--text)}
 .hl{
   background:linear-gradient(180deg,transparent 61%,var(--tint) 61%);
   padding:0 .1em;
@@ -127,7 +135,7 @@ h1{
   -webkit-box-decoration-break:clone;
 }
 .directions-label{
-  margin-top:2.8rem;
+  margin-top:2.55rem;
   margin-bottom:1.05rem;
   color:var(--accent-deep);
   font-size:.9rem;
@@ -174,15 +182,15 @@ h1{
 }
 .thrusts strong::after{content:'. '}
 .bio-note{
-  max-width:73ch;
-  padding-top:1.15rem;
+  width:100%;
+  padding-top:1.05rem;
   border-top:1px solid var(--rule);
   color:#4C5866;
   font-size:.94rem;
 }
 
 /* ---------- section headings ---------- */
-section{padding-top:4.4rem}
+section{padding-top:3.9rem}
 h2{
   display:flex;
   align-items:center;
@@ -206,11 +214,11 @@ h2::after{content:'';height:1px;flex:1;background:var(--rule)}
 /* ---------- compact teaching ---------- */
 #teaching{
   display:grid;
-  grid-template-columns:7.5rem minmax(0,1fr);
-  gap:1.75rem;
+  grid-template-columns:6.7rem minmax(0,1fr);
+  gap:1.25rem;
   align-items:center;
-  margin-top:3.7rem;
-  padding:.95rem 0;
+  margin-top:2.7rem;
+  padding:.65rem 0;
   border-top:1px solid var(--rule);
   border-bottom:1px solid var(--rule);
 }
@@ -228,8 +236,8 @@ h2::after{content:'';height:1px;flex:1;background:var(--rule)}
 #teaching h2::after{display:none}
 #teaching .pubs{
   display:flex;
-  flex-wrap:wrap;
-  gap:.65rem 2.4rem;
+  flex-wrap:nowrap;
+  gap:.35rem 1.9rem;
 }
 #teaching .pubs li{
   margin:0;
@@ -295,10 +303,13 @@ h3{
   line-height:1.55;
 }
 .grp-body{min-width:0}
-.subgrp + .subgrp{margin-top:2.75rem}
+.subgrp + .subgrp{margin-top:3.15rem}
 h4{
+  display:flex;
+  align-items:center;
+  gap:.9rem;
   margin:0 0 1.05rem;
-  padding:.62rem .8rem;
+  padding:.56rem .8rem;
   border-left:3px solid var(--accent);
   background:var(--soft);
   font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
@@ -308,6 +319,7 @@ h4{
   line-height:1.35;
   letter-spacing:.01em;
 }
+h4::after{content:'';height:1px;flex:1;background:rgba(23,104,212,.18)}
 .pubs{list-style:none}
 .pubs li{
   max-width:none;
@@ -364,6 +376,7 @@ footer{
 }
 
 @media (max-width:900px){
+  #teaching .pubs{flex-wrap:wrap}
   .wrap{max-width:54rem}
   .masthead{grid-template-columns:225px minmax(0,1fr);gap:3rem}
   .masthead img{width:225px;box-shadow:12px 12px 0 var(--tint)}
@@ -380,6 +393,7 @@ footer{
   h1{font-size:2.25rem}
   .intro{padding-top:3rem}
   .intro .tagline,.intro .intro-copy{font-size:1rem}
+  .intro-body{grid-template-columns:1fr;gap:1.1rem}
   .thrusts{grid-template-columns:1fr;gap:1.35rem}
   .thrusts li{padding-top:.9rem}
   #teaching{grid-template-columns:1fr;gap:.55rem;margin-top:3.2rem}
@@ -414,17 +428,17 @@ footer{
 </div>
 </div>
 </header>
-<div class="intro"><p class="tagline">I build computational models of language in context—how it shapes meaning, what it reveals about people and populations, and how AI systems interpret it.</p><p class="intro-copy">Language does more than state facts: it frames, hedges, organizes, and signals who we are and how we think. My work focuses on these <span class="hl">layers of meaning beyond literal content</span>, with particular attention to metaphor and figurative framing, discourse structure and coherence, and stance and social positioning.</p><p class="intro-copy">To study these layers, I turn linguistic theories into computational measurements and combine them with machine learning and multimodal signals. I evaluate these models in controlled studies and in settings where language carries real consequences, especially in health. My goal is to build language technologies that respond to what language does, not only to what it says.</p><p class="directions-label">My research spans three connected directions</p><ul class="thrusts"><li><strong>Machine judgment and trust</strong>A current emphasis on what language models respond to when they interpret and evaluate human language, and when those judgments can be trusted.</li><li><strong>Meaning in context</strong>How metaphor, framing, discourse structure, coherence, and social positioning shape interpretation.</li><li><strong>Language as evidence</strong>What language, speech, gaze, and discourse reveal about cognition, mental state, patient needs, and population-level health attitudes.</li></ul><p class="bio-note">I received my Ph.D. from the <a href="http://www.lti.cs.cmu.edu">Language Technologies Institute</a> at Carnegie Mellon University, and was a <a href="https://www.cihr-irsc.gc.ca/e/51211.html">CIHR Health System Impact Postdoctoral Fellow</a> at the University of British Columbia and the BC Centre for Disease Control.</p></div>
+<div class="intro"><p class="tagline">I build computational models of language in context—how it shapes meaning, what it reveals about people and populations, and how AI systems interpret it.</p><div class="intro-body"><p class="intro-copy">Language does more than state facts: it frames, hedges, organizes, and signals who we are and how we think. My work focuses on these <span class="hl">layers of meaning beyond literal content</span>, with particular attention to metaphor and figurative framing, discourse structure and coherence, and stance and social positioning.</p><p class="intro-copy">To study these layers, I turn linguistic theories into computational measurements and combine them with machine learning and multimodal signals. I evaluate these models in controlled studies and in settings where language carries real consequences, especially in health and education. My goal is to build language technologies that respond to what language does, not only to what it says.</p></div><p class="directions-label">My research spans three connected directions</p><ul class="thrusts"><li><strong>Machine judgment and trust</strong>A current emphasis on what language models respond to when they interpret and evaluate human language, and when those judgments can be trusted.</li><li><strong>Meaning in context</strong>How metaphor, framing, discourse structure, coherence, and social positioning shape interpretation.</li><li><strong>Language as evidence and intervention</strong>What language and multimodal behavior reveal about cognition, health, learning, and public attitudes—and how language technologies can support care and education.</li></ul><p class="bio-note">I received my Ph.D. from the <a href="http://www.lti.cs.cmu.edu">Language Technologies Institute</a> at Carnegie Mellon University, and was a <a href="https://www.cihr-irsc.gc.ca/e/51211.html">CIHR Health System Impact Postdoctoral Fellow</a> at the University of British Columbia and the BC Centre for Disease Control.</p></div>
 <section aria-label="Teaching" id="teaching">
 <h2>Teaching</h2>
 <ul class="pubs">
-<li><span class="pt">Natural Language Processing</span><span class="pv">CSCI-B 651, graduate · Indiana University Indianapolis</span></li>
-<li><span class="pt">Machine Learning</span><span class="pv">CSCI-B 455/555 · Indiana University Indianapolis</span></li>
+<li><span class="pt">Natural Language Processing</span><span class="pv">CSCI-B 651, graduate</span></li>
+<li><span class="pt">Machine Learning</span><span class="pv">CSCI-B 455/555</span></li>
 </ul>
 </section>
 <section id="publications">
 <h2>Publications</h2>
-<p class="note">Grouped by the research directions above; within each group, newest first. * equal contribution, alphabetically ordered.</p>
+<p class="note">Grouped by research direction and theme; within each subgroup, newest first. * equal contribution, alphabetically ordered.</p>
 <div class="grp"><div class="grp-head" data-label="CURRENT FOCUS"><h3>Machine judgment and trust</h3><p class="lead">How language models interpret and evaluate human text, which cues their judgments depend on, and when those judgments can be trusted.</p></div><div class="grp-body"><ul class="pubs">
 <li>
 <span class="pt">A Mirage of Coherence: How Metaphor Impacts Language Models’ Discourse Coherence Assessment</span>
@@ -500,7 +514,7 @@ footer{
 <span class="pl"><a href="https://www.aclweb.org/anthology/W14-2301.pdf">[PDF]</a></span>
 </li>
 </ul></div></div>
-<div class="grp"><div class="grp-head" data-label="HEALTH &amp; SOCIETY"><h3>Language as evidence in health and society</h3><p class="lead">What language and multimodal behavior reveal about cognition, mental state, patient needs, and health discourse from individuals to populations.</p></div><div class="grp-body"><div class="subgrp"><h4>Cognition and clinical communication</h4><ul class="pubs">
+<div class="grp"><div class="grp-head" data-label="PEOPLE, HEALTH &amp; LEARNING"><h3>Language as evidence and intervention</h3><p class="lead">How language and multimodal behavior reveal cognition, mental state, learning, and public attitudes—and how language technologies support care, communication, and education.</p></div><div class="grp-body"><div class="subgrp"><h4>Cognition and clinical communication</h4><ul class="pubs">
 <li>
 <span class="pt">Estimating the Risk of Depression and Care Burden among Dementia Caregivers: A Feasibility Study</span>
 <span class="pa">Omid Ghadami, Kruthika Gaddam, Mahesh Moodukonaje, <strong>Hyeju Jang</strong>*, Hee-Tae Jung*</span>
@@ -573,7 +587,27 @@ footer{
 <span class="pa"><strong>Hyeju Jang</strong>, Vaden Masrani, Giuseppe Carenini, Raymond Ng, Gabriel Murray, Thalia Field</span>
 <span class="pv">5th Pacific Northwest Regional NLP Workshop (NW-NLP), 2018</span>
 </li>
-</ul></div><div class="subgrp"><h4>Population and public-health discourse</h4><ul class="pubs">
+</ul></div><div class="subgrp"><h4>Learning and educational support</h4><ul class="pubs"><li>
+<span class="pt">Developing, Evaluating, and Refining an Automatic Generator of Diagnostic Multiple Choice Cloze Questions to Assess Children’s Comprehension While Reading</span>
+<span class="pa">Jack Mostow, Yi-Ting Huang, <strong>Hyeju Jang</strong>, Anders Weinstein, Joe Valeri, Donna Gates</span>
+<span class="pv">Natural Language Engineering, pp. 1–50, 2016</span>
+<span class="pl"><a href="https://link.springer.com/article/10.1007/s40593-013-0012-6">[link]</a></span>
+</li><li>
+<span class="pt">Towards an Agile Approach to Adapting Dynamic Collaboration Support to Student Needs</span>
+<span class="pa">David Adamson, Gregory Dyke, <strong>Hyeju Jang</strong>, Carolyn Penstein Rosé</span>
+<span class="pv">International Journal of Artificial Intelligence in Education 24.1, pp. 92–124, 2014</span>
+<span class="pl"><a href="https://link.springer.com/article/10.1007/s40593-013-0012-6">[link]</a></span>
+</li><li>
+<span class="pt">Intensification of Group Knowledge Exchange with Academically Productive Talk Agents</span>
+<span class="pa">David Adamson, Colin Ashe, <strong>Hyeju Jang</strong>, David Yaron, Carolyn Penstein Rosé</span>
+<span class="pv">Conference on Computer Supported Collaborative Learning (CSCL), pp. 10–17, 2013</span>
+<span class="pl"><a href="https://www.cs.cmu.edu/afs/cs.cmu.edu/Web/People/dadamson/pubs/2013_Adamson_APT_Intensification.pdf">[PDF]</a></span>
+</li><li>
+<span class="pt">Generating Diagnostic Multiple Choice Comprehension Cloze Questions</span>
+<span class="pa">Jack Mostow, <strong>Hyeju Jang</strong></span>
+<span class="pv">Seventh Workshop on Building Educational Applications Using NLP at NAACL, pp. 136–146, 2012</span>
+<span class="pl"><a href="https://www.aclweb.org/anthology/W12-2016.pdf">[PDF]</a></span>
+</li></ul></div><div class="subgrp"><h4>Population and public-health discourse</h4><ul class="pubs">
 <li>
 <span class="pt">Natural Language Processing to Evaluate Texting Conversations Between Patients and Healthcare Providers During COVID-19 Home-Based Care in Rwanda at Scale</span>
 <span class="pa">Richard T Lester, Matthew Manson, Muhammed Semakula, <strong>Hyeju Jang</strong>, Hassan Mugabo, Ali Magzari, Junhong Ma Blackmer, Fanan Fattah, Simon Pierre Niyonsenga, Edson Rwagasore, Charles Ruranga, Eric Remera, Jean Claude S. Ngabonziza, Giuseppe Carenini, Sabin Nsanzimana</span>
@@ -626,23 +660,11 @@ footer{
 <span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/8983311">[link]</a></span>
 </li>
 </ul></div></div></div>
-<div class="grp"><div class="grp-head" data-label="ADDITIONAL PUBLICATIONS"><h3>Additional publications in NLP and interdisciplinary applications</h3><p class="lead">Earlier work in educational NLP and clinical text mining, together with collaborations across NLP, machine learning, and visual analytics.</p></div><div class="grp-body"><ul class="pubs">
-<li>
+<div class="grp"><div class="grp-head" data-label="OTHER LINES"><h3>Additional NLP and interdisciplinary work</h3><p class="lead">Earlier and collaborative work on interpretable NLP, semantic reasoning, clinical text and medical knowledge, and context-aware systems.</p></div><div class="grp-body"><div class="subgrp"><h4>Interpretable and visual NLP</h4><ul class="pubs"><li>
 <span class="pt">Generating Descriptive Explanations of Machine Learning Models Using LLM</span>
 <span class="pa">Andrew Pang, <strong>Hyeju Jang</strong>, Shiaofen Fang</span>
 <span class="pv">From Theory to Practice: Workshop on Large Language and Foundation Models at IEEE Big Data, 2024</span>
-</li>
-<li>
-<span class="pt">Unsupervised Hypernymy Directionality Prediction Using Context Terms</span>
-<span class="pa">Thushara Naduvilakandy, <strong>Hyeju Jang</strong>, Mohammad A. Hasan</span>
-<span class="pv">Natural Language Processing Journal, 2024</span>
-</li>
-<li>
-<span class="pt">Improving Multi-hop Logical Reasoning in Knowledge Graphs with Context-Aware Query Representation Learning</span>
-<span class="pa">Jeonghoon Kim, Heesoo Jung, <strong>Hyeju Jang</strong>, Hogun Park</span>
-<span class="pv">Findings of the Association for Computational Linguistics (ACL), 2024</span>
-</li>
-<li>
+</li><li>
 <span class="pt">T3-Vis: A Visual Analytic Framework for Training and Fine-Tuning Transformers in NLP</span>
 <span class="pa">Raymond Li, Wen Xiao, Lanjun Wang, <strong>Hyeju Jang</strong>, Giuseppe Carenini</span>
 <span class="pv">Conference on Empirical Methods in Natural Language Processing (EMNLP), 2021</span>
@@ -657,104 +679,75 @@ footer{
 <span class="pa">Amon Ge, <strong>Hyeju Jang</strong>, Giuseppe Carenini, Kendall Ho, Young Ji Lee</span>
 <span class="pv">IEEE Visualization Conference (VIS), pp. 66–70, 2019</span>
 <span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/8933646">[link]</a></span>
-</li>
-<li>
-<span class="pt">Developing, Evaluating, and Refining an Automatic Generator of Diagnostic Multiple Choice Cloze Questions to Assess Children’s Comprehension While Reading</span>
-<span class="pa">Jack Mostow, Yi-Ting Huang, <strong>Hyeju Jang</strong>, Anders Weinstein, Joe Valeri, Donna Gates</span>
-<span class="pv">Natural Language Engineering, pp. 1–50, 2016</span>
-<span class="pl"><a href="https://link.springer.com/article/10.1007/s40593-013-0012-6">[link]</a></span>
-</li>
-<li>
-<span class="pt">Towards an Agile Approach to Adapting Dynamic Collaboration Support to Student Needs</span>
-<span class="pa">David Adamson, Gregory Dyke, <strong>Hyeju Jang</strong>, Carolyn Penstein Rosé</span>
-<span class="pv">International Journal of Artificial Intelligence in Education 24.1, pp. 92–124, 2014</span>
-<span class="pl"><a href="https://link.springer.com/article/10.1007/s40593-013-0012-6">[link]</a></span>
-</li>
-<li>
-<span class="pt">Intensification of Group Knowledge Exchange with Academically Productive Talk Agents</span>
-<span class="pa">David Adamson, Colin Ashe, <strong>Hyeju Jang</strong>, David Yaron, Carolyn Penstein Rosé</span>
-<span class="pv">Conference on Computer Supported Collaborative Learning (CSCL), pp. 10–17, 2013</span>
-<span class="pl"><a href="https://www.cs.cmu.edu/afs/cs.cmu.edu/Web/People/dadamson/pubs/2013_Adamson_APT_Intensification.pdf">[PDF]</a></span>
-</li>
-<li>
+</li></ul></div><div class="subgrp"><h4>Reasoning and semantic representation</h4><ul class="pubs"><li>
+<span class="pt">Unsupervised Hypernymy Directionality Prediction Using Context Terms</span>
+<span class="pa">Thushara Naduvilakandy, <strong>Hyeju Jang</strong>, Mohammad A. Hasan</span>
+<span class="pv">Natural Language Processing Journal, 2024</span>
+</li><li>
+<span class="pt">Improving Multi-hop Logical Reasoning in Knowledge Graphs with Context-Aware Query Representation Learning</span>
+<span class="pa">Jeonghoon Kim, Heesoo Jung, <strong>Hyeju Jang</strong>, Hogun Park</span>
+<span class="pv">Findings of the Association for Computational Linguistics (ACL), 2024</span>
+</li><li>
 <span class="pt">Extracting Events with Informal Temporal References in Personal Histories in Online Communities</span>
 <span class="pa">Miaomiao Wen, Zeyu Zheng, <strong>Hyeju Jang</strong>, Guang Xiang, Carolyn Penstein Rosé</span>
 <span class="pv">51st Annual Meeting of the Association for Computational Linguistics (ACL), pp. 836–842, 2013</span>
 <span class="pl"><a href="https://www.aclweb.org/anthology/P13-2145.pdf">[PDF]</a></span>
-</li>
-<li>
+</li><li>
 <span class="pt">Inferring Selectional Preferences from Part-of-Speech N-grams</span>
 <span class="pa"><strong>Hyeju Jang</strong>, Jack Mostow</span>
 <span class="pv">13th Conference of the European Chapter of the ACL (EACL), pp. 377–386, 2012</span>
 <span class="pl"><a href="https://www.aclweb.org/anthology/E12-1038.pdf">[PDF]</a></span>
-</li>
-<li>
-<span class="pt">Generating Diagnostic Multiple Choice Comprehension Cloze Questions</span>
-<span class="pa">Jack Mostow, <strong>Hyeju Jang</strong></span>
-<span class="pv">Seventh Workshop on Building Educational Applications Using NLP at NAACL, pp. 136–146, 2012</span>
-<span class="pl"><a href="https://www.aclweb.org/anthology/W12-2016.pdf">[PDF]</a></span>
-</li>
-<li>
-<span class="pt">Procedural Entity Extraction for Procedural Knowledge on Medline Abstracts</span>
-<span class="pa">Sakwang Song, Hungsun Oh, Yoonjung Choi, <strong>Hyeju Jang</strong>, Sung-Hyon Myaeng, Sungpil Choi, Yunsoo Choi</span>
-<span class="pv">Korean Information Science Society Conference, pp. 154–157 · in Korean, 2011</span>
-<span class="pl"><a href="https://www.koreascience.or.kr/article/CFKO201128451824424.page">[link]</a></span>
-</li>
-<li>
-<span class="pt">Personal Information Access Using Proactive Search and Mobile Hypertext</span>
-<span class="pa"><strong>Hyeju Jang</strong>, Seongchan Kim, Wookhyun Shin, Sung-Hyon Myaeng</span>
-<span class="pv">IEEE Intelligent Systems, vol. 25, no. 1, pp. 27–36, 2010</span>
-<span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/5432258">[link]</a></span>
-</li>
-<li>
-<span class="pt">Personalized Healthcare through Intelligent Gadgets</span>
-<span class="pa"><strong>Hyeju Jang</strong>, Sanghyun Kim, Changseok Bae</span>
-<span class="pv">30th Annual International Conference IEEE Engineering in Medicine and Biology Society (IEEE-EMBC), pp. 3308–3311, 2008</span>
-<span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/4649912">[link]</a></span>
-</li>
-<li>
-<span class="pt">Context Representation of Intelligent Gadgets for Event-driven Services</span>
-<span class="pa"><strong>Hyeju Jang</strong>, Kuksang Jeong, Jongho Won, Changseok Bae</span>
-<span class="pv">International Conference on Consumer Electronics (ICCE), pp. 1–2, 2008</span>
-<span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/4587984">[link]</a></span>
-</li>
-<li>
-<span class="pt">MEMORIA: Personal Memento Service Using Intelligent Gadgets</span>
-<span class="pa"><strong>Hyeju Jang</strong>, Jongho Won, Changseok Bae</span>
-<span class="pv">HCI International Conference (HCII), pp. 331–339, 2007</span>
-<span class="pl"><a href="https://link.springer.com/chapter/10.1007/978-3-540-73110-8_35">[link]</a></span>
-</li>
-<li>
-<span class="pt">Integration of Low Level Linguistic Information for Clinical Document Semantic Tagging</span>
-<span class="pa"><strong>Hyeju Jang</strong>, Yun Jin, Sung Hyon Myaeng</span>
-<span class="pv">IEEE Conference on Information Reuse and Integration (IEEE-IRI), pp. 292–297, 2006</span>
-<span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/4018505">[link]</a></span>
-</li>
-<li>
-<span class="pt">Text Mining for Medical Documents Using a Hidden Markov Model</span>
-<span class="pa"><strong>Hyeju Jang</strong>, Sa Kwang Song, Sung Hyon Myaeng</span>
-<span class="pv">Asia Information Retrieval Symposium (AIRS), LNCS 4182, pp. 553–559, 2006</span>
-<span class="pl"><a href="https://link.springer.com/chapter/10.1007/11880592_45">[link]</a></span>
-</li>
-<li>
-<span class="pt">Semantic Tagging for Medical Knowledge Tracking</span>
-<span class="pa"><strong>Hyeju Jang</strong>, Sa Kwang Song, Sung Hyon Myaeng</span>
-<span class="pv">28th Annual International Conference IEEE Engineering in Medicine and Biology Society (IEEE-EMBC), pp. 6257–6260, 2006</span>
-<span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/4463239">[link]</a></span>
-</li>
-<li>
-<span class="pt">High Level Semantic Tagging in Clinical Documents Using a HMM Model</span>
-<span class="pa"><strong>Hyeju Jang</strong>, Sa Kwang Song, Sung Hyon Myaeng</span>
-<span class="pv">Korean Information Science Society Conference, pp. 19–21 · in Korean, 2006</span>
-<span class="pl"><a href="https://www.koreascience.or.kr/article/CFKO200625121628319.page">[link]</a></span>
-</li>
-<li>
+</li><li>
 <span class="pt">Design of Topic Detection and Tracking System for QA in Encyclopedia</span>
 <span class="pa"><strong>Hyeju Jang</strong>, Yuchul Jung, Bo-Yeong Kang, Sa Kwang Song, Yun Jin, Hoon Song, Sung Hyon Myaeng</span>
 <span class="pv">Korean Information Science Society Conference, pp. 22–24 · in Korean, 2006</span>
 <span class="pl"><a href="https://www.koreascience.or.kr/article/CFKO200625121628362.page">[link]</a></span>
-</li>
-</ul></div></div>
+</li></ul></div><div class="subgrp"><h4>Clinical text and medical knowledge</h4><ul class="pubs"><li>
+<span class="pt">Procedural Entity Extraction for Procedural Knowledge on Medline Abstracts</span>
+<span class="pa">Sakwang Song, Hungsun Oh, Yoonjung Choi, <strong>Hyeju Jang</strong>, Sung-Hyon Myaeng, Sungpil Choi, Yunsoo Choi</span>
+<span class="pv">Korean Information Science Society Conference, pp. 154–157 · in Korean, 2011</span>
+<span class="pl"><a href="https://www.koreascience.or.kr/article/CFKO201128451824424.page">[link]</a></span>
+</li><li>
+<span class="pt">Integration of Low Level Linguistic Information for Clinical Document Semantic Tagging</span>
+<span class="pa"><strong>Hyeju Jang</strong>, Yun Jin, Sung Hyon Myaeng</span>
+<span class="pv">IEEE Conference on Information Reuse and Integration (IEEE-IRI), pp. 292–297, 2006</span>
+<span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/4018505">[link]</a></span>
+</li><li>
+<span class="pt">Text Mining for Medical Documents Using a Hidden Markov Model</span>
+<span class="pa"><strong>Hyeju Jang</strong>, Sa Kwang Song, Sung Hyon Myaeng</span>
+<span class="pv">Asia Information Retrieval Symposium (AIRS), LNCS 4182, pp. 553–559, 2006</span>
+<span class="pl"><a href="https://link.springer.com/chapter/10.1007/11880592_45">[link]</a></span>
+</li><li>
+<span class="pt">Semantic Tagging for Medical Knowledge Tracking</span>
+<span class="pa"><strong>Hyeju Jang</strong>, Sa Kwang Song, Sung Hyon Myaeng</span>
+<span class="pv">28th Annual International Conference IEEE Engineering in Medicine and Biology Society (IEEE-EMBC), pp. 6257–6260, 2006</span>
+<span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/4463239">[link]</a></span>
+</li><li>
+<span class="pt">High Level Semantic Tagging in Clinical Documents Using a HMM Model</span>
+<span class="pa"><strong>Hyeju Jang</strong>, Sa Kwang Song, Sung Hyon Myaeng</span>
+<span class="pv">Korean Information Science Society Conference, pp. 19–21 · in Korean, 2006</span>
+<span class="pl"><a href="https://www.koreascience.or.kr/article/CFKO200625121628319.page">[link]</a></span>
+</li></ul></div><div class="subgrp"><h4>Context-aware intelligent systems</h4><ul class="pubs"><li>
+<span class="pt">Personal Information Access Using Proactive Search and Mobile Hypertext</span>
+<span class="pa"><strong>Hyeju Jang</strong>, Seongchan Kim, Wookhyun Shin, Sung-Hyon Myaeng</span>
+<span class="pv">IEEE Intelligent Systems, vol. 25, no. 1, pp. 27–36, 2010</span>
+<span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/5432258">[link]</a></span>
+</li><li>
+<span class="pt">Personalized Healthcare through Intelligent Gadgets</span>
+<span class="pa"><strong>Hyeju Jang</strong>, Sanghyun Kim, Changseok Bae</span>
+<span class="pv">30th Annual International Conference IEEE Engineering in Medicine and Biology Society (IEEE-EMBC), pp. 3308–3311, 2008</span>
+<span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/4649912">[link]</a></span>
+</li><li>
+<span class="pt">Context Representation of Intelligent Gadgets for Event-driven Services</span>
+<span class="pa"><strong>Hyeju Jang</strong>, Kuksang Jeong, Jongho Won, Changseok Bae</span>
+<span class="pv">International Conference on Consumer Electronics (ICCE), pp. 1–2, 2008</span>
+<span class="pl"><a href="https://ieeexplore.ieee.org/abstract/document/4587984">[link]</a></span>
+</li><li>
+<span class="pt">MEMORIA: Personal Memento Service Using Intelligent Gadgets</span>
+<span class="pa"><strong>Hyeju Jang</strong>, Jongho Won, Changseok Bae</span>
+<span class="pv">HCI International Conference (HCII), pp. 331–339, 2007</span>
+<span class="pl"><a href="https://link.springer.com/chapter/10.1007/978-3-540-73110-8_35">[link]</a></span>
+</li></ul></div></div></div>
 </section>
 <footer>
   Hyeju Jang · Indiana University Indianapolis · last updated August 2026
