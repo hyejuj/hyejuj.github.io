@@ -108,13 +108,20 @@ h1{
 }
 
 .intro .tagline{
-  width:min(100%,72ch);
-  margin:0 auto 1.6rem;
-  padding-top:1rem;
-  border-top:4px solid var(--accent);
-  font-size:1rem;
-  line-height:1.68;
-  font-weight:600;
+    width:min(100%,72ch);
+
+    margin:0 auto 1.6rem;
+
+    padding-top:1rem;
+
+    background:
+      linear-gradient(var(--accent), var(--accent))
+      top left / 100% 4px
+      no-repeat;
+
+    font-size:1rem;
+    line-height:1.68;
+    font-weight:600;
 }
 
 .intro .tagline::before{
