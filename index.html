@@ -107,23 +107,21 @@ h1{
   padding-top:3.7rem;
 }
 
-.intro::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:4px;
-  background:var(--accent);
+.intro .tagline{
+  width:min(100%,72ch);
+  margin:0 auto 1.6rem;
+  padding-top:1rem;
+  border-top:4px solid var(--accent);
+  font-size:1rem;
+  line-height:1.68;
+  font-weight:600;
 }
 
-.intro p{
-  margin-bottom:1rem;
-  max-width:none;
+.intro .tagline::before{
+  content:none;
 }
 
-.intro .tagline,
-.intro-body,
+.intro .intro-body,
 .intro .bio{
   width:min(100%,72ch);
   margin-inline:auto;
