@@ -103,7 +103,20 @@ h1{
 
 /* ---------- introduction ---------- */
 .intro{
+    position:relative;
     padding-top:3.7rem;
+}
+
+.intro::before{
+    content:"";
+    display:block;
+
+    width:100%;
+    height:4px;
+
+    background:var(--accent);
+
+    margin:0 auto 1.6rem;
 }
 
 .intro p{
